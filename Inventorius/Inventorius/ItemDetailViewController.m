@@ -7,6 +7,7 @@
 //
 
 #import "ItemDetailViewController.h"
+#import "AssetCreateViewController.h"
 
 @interface ItemDetailViewController ()
 
@@ -42,6 +43,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"SegueItemDetailToAssetCreate"])
+    {
+        AssetCreateViewController* controller = ((AssetCreateViewController*)segue.destinationViewController);
+        controller.createdAsset = self.detailItem;
+    }
+
 }
 
 - (void)onEditButton:(id)sender
