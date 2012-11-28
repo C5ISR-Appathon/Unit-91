@@ -76,11 +76,11 @@
     Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:indexPath.row];
     if([asset isKindOfClass:[Item class]])
     {
-        [self performSegueWithIdentifier:@"SegueInventoryDetailToItemDetail" sender:self];
+        [self performSegueWithIdentifier:@"SegueContainerDetailToItemDetail" sender:self];
     }
     else if ([asset isKindOfClass:[Container class]])
     {
-        [self performSegueWithIdentifier:@"SegueInventoryDetailToContainerDetail" sender:self];
+        [self performSegueWithIdentifier:@"SegueContainerDetailToContainerDetail" sender:self];
     }
 }
 
