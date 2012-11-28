@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07628361166653C300FAFB16 /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628360166653C300FAFB16 /* Inventory.m */; };
+		07628364166653C300FAFB16 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628363166653C300FAFB16 /* Item.m */; };
+		07628367166653C300FAFB16 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628366166653C300FAFB16 /* Asset.m */; };
+		0762836A166653C300FAFB16 /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628369166653C300FAFB16 /* Container.m */; };
 		524D53CF1666518300556439 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53CE1666518300556439 /* UIKit.framework */; };
 		524D53D11666518300556439 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53D01666518300556439 /* Foundation.framework */; };
 		524D53D31666518300556439 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53D21666518300556439 /* CoreGraphics.framework */; };
@@ -28,6 +32,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0762835F166653C300FAFB16 /* Inventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inventory.h; sourceTree = "<group>"; };
+		07628360166653C300FAFB16 /* Inventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inventory.m; sourceTree = "<group>"; };
+		07628362166653C300FAFB16 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		07628363166653C300FAFB16 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		07628365166653C300FAFB16 /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
+		07628366166653C300FAFB16 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
+		07628368166653C300FAFB16 /* Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Container.h; sourceTree = "<group>"; };
+		07628369166653C300FAFB16 /* Container.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Container.m; sourceTree = "<group>"; };
 		524D53CA1666518300556439 /* Inventorius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inventorius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524D53CE1666518300556439 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		524D53D01666518300556439 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,6 +85,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		076283511666529700FAFB16 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				07628368166653C300FAFB16 /* Container.h */,
+				07628369166653C300FAFB16 /* Container.m */,
+				07628365166653C300FAFB16 /* Asset.h */,
+				07628366166653C300FAFB16 /* Asset.m */,
+				07628362166653C300FAFB16 /* Item.h */,
+				07628363166653C300FAFB16 /* Item.m */,
+				0762835F166653C300FAFB16 /* Inventory.h */,
+				07628360166653C300FAFB16 /* Inventory.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		524D53BF1666518300556439 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +131,7 @@
 		524D53D61666518300556439 /* Inventorius */ = {
 			isa = PBXGroup;
 			children = (
+				076283511666529700FAFB16 /* Model */,
 				524D53DF1666518300556439 /* AppDelegate.h */,
 				524D53E01666518300556439 /* AppDelegate.m */,
 				524D53E81666518300556439 /* MainStoryboard.storyboard */,
