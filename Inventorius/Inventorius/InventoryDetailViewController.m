@@ -44,12 +44,22 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddButton:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)onAddButton:(id)sender
+{
+    // do segue to InventoryCreate
+    [self performSegueWithIdentifier:@"SegueToAssetCreate" sender:self];
 }
 
 #pragma mark - UICollectionViewDataSource

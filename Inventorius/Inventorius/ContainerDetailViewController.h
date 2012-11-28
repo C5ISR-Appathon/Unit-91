@@ -10,4 +10,6 @@
 
 @interface ContainerDetailViewController : UICollectionViewController
 
+@property (strong, nonatomic) id detailItem;
+
 @end
