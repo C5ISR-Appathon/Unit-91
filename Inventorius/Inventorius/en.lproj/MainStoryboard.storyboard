@@ -74,7 +74,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="36"/>
                     <connections>
-                        <segue destination="qlZ-VF-D9p" kind="push" id="tRO-qv-Pn8"/>
+                        <segue destination="qlZ-VF-D9p" kind="push" identifier="SegueToInventoryCreate" id="tRO-qv-Pn8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -280,6 +280,18 @@
             <relationships>
                 <relationship kind="outlet" name="assetTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ContainerDetailViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContainerDetailViewController.h"/>
+        </class>
+        <class className="InventoryCreateViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InventoryCreateViewController.h"/>
+        </class>
+        <class className="InventoryDetailViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InventoryDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ContainerDetailViewController" superclassName="UICollectionViewController">
