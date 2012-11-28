@@ -40,6 +40,9 @@
     self.createdInventory.strName = @"New Inventory";
     self.createdInventory.owner = @"The Owner";
     
+    // TODO: geekawn
+    // store the image location into the self.createdInventory object
+    
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Couldn't save: %@", [error localizedDescription]);
