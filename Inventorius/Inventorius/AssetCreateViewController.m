@@ -22,6 +22,9 @@
 @synthesize m_descriptionTextField;
 @synthesize selectedImage;
 @synthesize picker;
+@synthesize m_authorizedIssueNumberTextField;
+@synthesize m_nsnTextField;
+@synthesize m_unitOfIssueTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,10 +35,14 @@
     return self;
 }
 
+///@TODO: On done/scene leave, determine which type we are (item/container), create that, and populate it with info. DO NOT CREATE AN ASSET ON LOAD.
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Asset" inManagedObjectContext:self.managedObjectContext];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,6 +68,25 @@
     [self presentViewController:picker animated:YES completion:^{}];
 }
 
+- (IBAction)onDoneButton:(id)sender {
+    
+    if (m_containerSwitch.enabled)
+    {
+        
+    }
+    else
+    {
+        
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*) Picker {
     
     [[self parentViewController] dismissViewControllerAnimated:(YES) completion:^{}];
@@ -71,10 +97,27 @@
     [[self parentViewController] dismissViewControllerAnimated:YES completion:^{}];
     Picker = nil;
     
-    [[self parentViewController] dismissViewControllerAnimated:YES completion:^{}];
-    
     selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
     
     [m_cameraButton setBackgroundImage:selectedImage forState:UIControlStateNormal];
-     }
+    
+    NSMutableString  *jpgPath = [[NSMutableString alloc] init];
+    
+    [jpgPath appendString:@"/inventorius/"];
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    
+    NSDate* currentTime = [NSDate date];
+    
+    NSString* fileStamp = [format stringFromDate:currentTime];
+    
+    [jpgPath appendString:fileStamp];
+    [jpgPath appendString:@".jpg"];
+    
+    NSData* jpg = UIImageJPEGRepresentation(selectedImage, 1.0);
+    
+    [jpg writeToFile:jpgPath atomically:NO];
+    
+    //self.createdInventory.strImagePath = jpgPath;
+    }
 @end
