@@ -165,13 +165,13 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Inventory" inManagedObjectContext:self.managedObjectContext];
-    NSEntityDescription *asset = [NSEntityDescription entityForName:@"Asset" inManagedObjectContext:self.managedObjectContext];
-    NSEntityDescription *container = [NSEntityDescription entityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
-    NSEntityDescription *item = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
+//    NSEntityDescription *asset = [NSEntityDescription entityForName:@"Asset" inManagedObjectContext:self.managedObjectContext];
+//    NSEntityDescription *container = [NSEntityDescription entityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
+//    NSEntityDescription *item = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
-    [fetchRequest setEntity:asset];
-    [fetchRequest setEntity:container];
-    [fetchRequest setEntity:item];
+//    [fetchRequest setEntity:asset];
+//    [fetchRequest setEntity:container];
+//    [fetchRequest setEntity:item];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
