@@ -10,4 +10,7 @@
 
 @interface ItemDetailViewController : UIViewController
 
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end
