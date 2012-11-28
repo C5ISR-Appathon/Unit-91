@@ -100,7 +100,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InventoryListCell" forIndexPath:indexPath];
     
     Inventory * inventory = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"1: %@", inventory.strName];
+    cell.textLabel.text = inventory.strName;
+    cell.detailTextLabel.text = inventory.owner;
     
     NSLog(@"Filename: %@", inventory.strImagePath);
     
