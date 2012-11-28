@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 unit91. All rights reserved.
 //
 
+#import "Container.h"
+#import "Item.h"
 #import "AssetCreateViewController.h"
 
 @interface AssetCreateViewController ()
@@ -25,6 +27,7 @@
 @synthesize m_authorizedIssueNumberTextField;
 @synthesize m_nsnTextField;
 @synthesize m_unitOfIssueTextField;
+@synthesize m_assetPath;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,14 +73,31 @@
 
 - (IBAction)onDoneButton:(id)sender {
     
+    //If is container
     if (m_containerSwitch.enabled)
     {
+        
+        self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
+        if ([self.createdAsset isKindOfClass:[Container class]])
+        {
+            
+        }
         
     }
     else
     {
-        
+        self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
+        if ([self.createdAsset isKindOfClass:[Item class]])
+        {
+            ((Item *) self.createdAsset).nsn = m_nsnTextField.text;
+            ((Item *) self.createdAsset).authorizedIssue = [NSDecimalNumber decimalNumberWithString:m_authorizedIssueNumberTextField.text];
+            ((Item *) self.createdAsset).quantity = [NSDecimalNumber decimalNumberWithString:m_quantityTextField.text];
+            ((Item *) self.createdAsset).unitOfIssue = [NSDecimalNumber decimalNumberWithString:m_unitOfIssueTextField.text];
+        }
     }
+    self.createdAsset.strDescription = m_descriptionTextField.text;
+    self.createdAsset.strImagePath = m_assetPath;
+    self.createdAsset.strName = m_nameTextField.text;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -126,6 +146,7 @@
     [jpg writeToFile:jpgPath atomically:NO];
     
     //self.createdInventory.strImagePath = jpgPath;
+    m_assetPath = jpgPath;
 
     }
 @end

@@ -22,7 +22,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *m_unitOfIssueTextField;
 @property (strong, nonatomic) UIImagePickerController *picker;
 @property (nonatomic, retain) UIImageView* selectedImage;
-
+@property (strong, nonatomic) NSString* m_assetPath;
 @property (strong, nonatomic) Asset *createdAsset;
 
 - (IBAction)cameraButtonPressed:(id)sender;
