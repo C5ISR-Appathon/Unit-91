@@ -19,7 +19,7 @@
 
 @synthesize m_cameraButton;
 @synthesize m_nameTextField;
-@synthesize m_quantityTextField;
+@synthesize m_ownerTextField;
 @synthesize m_descriptionTextField;
 @synthesize selectedImage;
 @synthesize picker;
@@ -28,18 +28,13 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
             }
     return self;
 }
 
 - (void)onDoneButton:(id) sender
 {
-    self.createdInventory = [NSEntityDescription insertNewObjectForEntityForName:@"Inventory" inManagedObjectContext:self.managedObjectContext];
-        
-    self.createdInventory.strName = @"New Inventory";
-    self.createdInventory.owner = @"The Owner";
-    
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Couldn't save: %@", [error localizedDescription]);
@@ -52,11 +47,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.createdInventory = [NSEntityDescription insertNewObjectForEntityForName:@"Inventory" inManagedObjectContext:self.managedObjectContext];
+    
+    self.createdInventory.strName = @"New Inventory";
+    self.createdInventory.owner = @"The Owner";
 	// Do any additional setup after loading the view.
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDoneButton:)];
     
     self.navigationItem.rightBarButtonItem = doneButton;
+    m_nameTextField.delegate = self;
+    m_ownerTextField.delegate = self;
+    m_descriptionTextField.delegate = self;
+    
 
 }
 
@@ -78,6 +81,13 @@
     
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
 - (IBAction)cameraButtonPressed:(id)sender {
     picker = [[UIImagePickerController alloc] init];
     
@@ -93,6 +103,19 @@
     }
     
     [self presentViewController:picker animated:YES completion:^{}];
+}
+
+- (IBAction)nameEntered:(id)sender {
+    self.createdInventory.strName = m_nameTextField.text;
+
+}
+
+- (IBAction)ownerEntered:(id)sender {
+    self.createdInventory.owner = m_ownerTextField.text;
+}
+
+- (IBAction)descriptionEntered:(id)sender {
+    self.createdInventory.strDescription = m_descriptionTextField.text;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*) Picker {
