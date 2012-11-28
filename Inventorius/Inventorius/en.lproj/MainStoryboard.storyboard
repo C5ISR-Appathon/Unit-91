@@ -34,10 +34,10 @@
             </objects>
             <point key="canvasLocation" x="473" y="-762"/>
         </scene>
-        <!--Inventory List View Controller - Master-->
+        <!--Inventory List View Controller - Inventories-->
         <scene sceneID="18">
             <objects>
-                <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="InventoryListViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="" title="Inventories" id="12" customClass="InventoryListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,7 +72,7 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="36"/>
+                    <navigationItem key="navigationItem" title="Inventories" id="36"/>
                     <connections>
                         <segue destination="qlZ-VF-D9p" kind="push" identifier="SegueToInventoryCreate" id="tRO-qv-Pn8"/>
                     </connections>
