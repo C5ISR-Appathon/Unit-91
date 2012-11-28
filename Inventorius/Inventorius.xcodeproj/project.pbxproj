@@ -155,15 +155,15 @@
 		524D53D61666518300556439 /* Inventorius */ = {
 			isa = PBXGroup;
 			children = (
-				52E1DEDF1666734800373F32 /* DefaultContainerImage.png */,
-				079134DB16665B4B00B247A0 /* ViewControllers */,
-				5252ADBF1666553D0002EDC5 /* UIComponents */,
-				076283511666529700FAFB16 /* Model */,
 				524D53DF1666518300556439 /* AppDelegate.h */,
 				524D53E01666518300556439 /* AppDelegate.m */,
-				524D53E81666518300556439 /* MainStoryboard.storyboard */,
+				52E1DEDF1666734800373F32 /* DefaultContainerImage.png */,
 				524D53EB1666518300556439 /* Inventorius.xcdatamodeld */,
+				524D53E81666518300556439 /* MainStoryboard.storyboard */,
+				076283511666529700FAFB16 /* Model */,
 				524D53D71666518300556439 /* Supporting Files */,
+				5252ADBF1666553D0002EDC5 /* UIComponents */,
+				079134DB16665B4B00B247A0 /* ViewControllers */,
 			);
 			path = Inventorius;
 			sourceTree = "<group>";

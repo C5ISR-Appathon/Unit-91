@@ -63,12 +63,24 @@
     if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToContainerDetail"])
     {
         // pass the managedObjectContext
-        ((ContainerDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        AssetCollectionViewCell *cell = sender;
+        NSIndexPath *cellIndex = [self.collectionView indexPathForCell:cell];
+        Container* container = [self.detailItem.assets.allObjects objectAtIndex:cellIndex.row];
+
+        ContainerDetailViewController* controller = ((ContainerDetailViewController*)segue.destinationViewController);
+        [controller setDetailItem:container];
+        controller.managedObjectContext = self.managedObjectContext;
     }
     
     if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToItemDetail"])
     {
         // pass the managedObjectContext
+        AssetCollectionViewCell *cell = sender;
+        NSIndexPath *cellIndex = [self.collectionView indexPathForCell:cell];
+        Item* item = [self.detailItem.assets.allObjects objectAtIndex:cellIndex.row];
+        
+        ItemDetailViewController* controller = ((ItemDetailViewController*)segue.destinationViewController);
+        [controller setDetailItem:item];
         ((ItemDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
     
