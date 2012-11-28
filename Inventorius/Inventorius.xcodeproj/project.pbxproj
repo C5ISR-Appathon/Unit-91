@@ -26,6 +26,7 @@
 		52E1DED716665A2800373F32 /* InventoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DECF16665A2800373F32 /* InventoryListViewController.m */; };
 		52E1DED816665A2800373F32 /* ItemCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DED116665A2800373F32 /* ItemCreateViewController.m */; };
 		52E1DED916665A2800373F32 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DED316665A2800373F32 /* ItemDetailViewController.m */; };
+		52E1DEE01666734800373F32 /* DefaultContainerImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E1DEDF1666734800373F32 /* DefaultContainerImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		52E1DED116665A2800373F32 /* ItemCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCreateViewController.m; sourceTree = "<group>"; };
 		52E1DED216665A2800373F32 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		52E1DED316665A2800373F32 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
+		52E1DEDF1666734800373F32 /* DefaultContainerImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultContainerImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		524D53D61666518300556439 /* Inventorius */ = {
 			isa = PBXGroup;
 			children = (
+				52E1DEDF1666734800373F32 /* DefaultContainerImage.png */,
 				079134DB16665B4B00B247A0 /* ViewControllers */,
 				5252ADBF1666553D0002EDC5 /* UIComponents */,
 				076283511666529700FAFB16 /* Model */,
@@ -240,6 +243,7 @@
 				524D53E51666518300556439 /* Default@2x.png in Resources */,
 				524D53E71666518300556439 /* Default-568h@2x.png in Resources */,
 				524D53EA1666518300556439 /* MainStoryboard.storyboard in Resources */,
+				52E1DEE01666734800373F32 /* DefaultContainerImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
