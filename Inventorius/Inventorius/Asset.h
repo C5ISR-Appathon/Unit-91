@@ -14,5 +14,7 @@
 
 @property (nonatomic, retain) NSString * strName;
 @property (nonatomic, retain) NSString * strDescription;
+@property (nonatomic, retain) NSString * strImagePath;
+@property (nonatomic, retain) NSString * strImagePathThumb;
 
 @end
