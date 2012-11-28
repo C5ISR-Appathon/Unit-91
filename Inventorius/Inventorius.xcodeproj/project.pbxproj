@@ -99,6 +99,25 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		079134DB16665B4B00B247A0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				52E1DEC816665A2700373F32 /* ContainerDetailViewController.h */,
+				52E1DEC916665A2700373F32 /* ContainerDetailViewController.m */,
+				52E1DECA16665A2700373F32 /* InventoryCreateViewController.h */,
+				52E1DECB16665A2700373F32 /* InventoryCreateViewController.m */,
+				52E1DECC16665A2700373F32 /* InventoryDetailViewController.h */,
+				52E1DECD16665A2700373F32 /* InventoryDetailViewController.m */,
+				52E1DECE16665A2700373F32 /* InventoryListViewController.h */,
+				52E1DECF16665A2800373F32 /* InventoryListViewController.m */,
+				52E1DED016665A2800373F32 /* ItemCreateViewController.h */,
+				52E1DED116665A2800373F32 /* ItemCreateViewController.m */,
+				52E1DED216665A2800373F32 /* ItemDetailViewController.h */,
+				52E1DED316665A2800373F32 /* ItemDetailViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		524D53BF1666518300556439 = {
 			isa = PBXGroup;
 			children = (
@@ -130,18 +149,7 @@
 		524D53D61666518300556439 /* Inventorius */ = {
 			isa = PBXGroup;
 			children = (
-				52E1DEC816665A2700373F32 /* ContainerDetailViewController.h */,
-				52E1DEC916665A2700373F32 /* ContainerDetailViewController.m */,
-				52E1DECA16665A2700373F32 /* InventoryCreateViewController.h */,
-				52E1DECB16665A2700373F32 /* InventoryCreateViewController.m */,
-				52E1DECC16665A2700373F32 /* InventoryDetailViewController.h */,
-				52E1DECD16665A2700373F32 /* InventoryDetailViewController.m */,
-				52E1DECE16665A2700373F32 /* InventoryListViewController.h */,
-				52E1DECF16665A2800373F32 /* InventoryListViewController.m */,
-				52E1DED016665A2800373F32 /* ItemCreateViewController.h */,
-				52E1DED116665A2800373F32 /* ItemCreateViewController.m */,
-				52E1DED216665A2800373F32 /* ItemDetailViewController.h */,
-				52E1DED316665A2800373F32 /* ItemDetailViewController.m */,
+				079134DB16665B4B00B247A0 /* ViewControllers */,
 				5252ADBF1666553D0002EDC5 /* UIComponents */,
 				076283511666529700FAFB16 /* Model */,
 				524D53DF1666518300556439 /* AppDelegate.h */,
