@@ -46,21 +46,21 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EJQ-Nv-SJb">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <connections>
                                     <action selector="nameEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="t3S-Mc-WpB"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Owner" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="diI-T2-jSw">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <connections>
                                     <action selector="ownerEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="Xl1-oe-B1E"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yZn-np-sdU">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <connections>
                                     <action selector="descriptionEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="5Qk-sv-roo"/>
                                 </connections>
@@ -401,12 +401,16 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AssetCreateViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cameraButtonPressed:"/>
+                <relationship kind="action" name="onDoneButton:"/>
+                <relationship kind="outlet" name="m_authorizedIssueNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="m_cameraButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="m_containerInventoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="m_containerSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="m_descriptionTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="m_nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="m_nsnTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="m_quantityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="m_unitOfIssueTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="ContainerDetailViewController" superclassName="UICollectionViewController">
