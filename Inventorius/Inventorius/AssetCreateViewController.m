@@ -102,7 +102,7 @@
 - (IBAction)onDoneButton:(id)sender {
     
     //If is container
-    if (m_containerSwitch.isSelected)
+    if (m_containerSwitch.isOn)
     {        
         self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
         if ([self.createdAsset isKindOfClass:[Container class]])
@@ -150,6 +150,23 @@
             NSLog(@"Could not save: %@", error.description);
         }
         [self performSegueWithIdentifier:@"SegueAssetCreateToInventoryDetail" sender:self];
+    }
+}
+
+- (IBAction)onSwitch:(id)sender {
+    if (m_containerSwitch.isOn)
+    {
+        m_quantityTextField.hidden = true;
+        m_authorizedIssueNumberTextField.hidden = true;
+        m_nsnTextField.hidden = true;
+        m_unitOfIssueTextField.hidden = true;
+    }
+    else
+    {
+        m_quantityTextField.hidden = false;
+        m_authorizedIssueNumberTextField.hidden = false;
+        m_nsnTextField.hidden = false;
+        m_unitOfIssueTextField.hidden = false;
     }
 }
 
