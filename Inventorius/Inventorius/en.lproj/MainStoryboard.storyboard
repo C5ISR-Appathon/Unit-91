@@ -213,20 +213,20 @@
                             <constraint firstItem="E7H-u4-kiE" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="20" symbolic="YES" type="default" id="6rI-eB-DPw"/>
                             <constraint firstItem="gTH-rg-VCu" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GDc-dC-0Yw"/>
                             <constraint firstItem="E7H-u4-kiE" firstAttribute="leading" secondItem="gTH-rg-VCu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="HOW-xh-MuI"/>
-                            <constraint firstAttribute="bottom" secondItem="opJ-Ck-Wb8" secondAttribute="bottom" constant="178" id="I6d-G2-2BQ"/>
                             <constraint firstItem="gTH-rg-VCu" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="20" symbolic="YES" type="default" id="L5n-W3-MqZ"/>
                             <constraint firstItem="fjt-B2-XIW" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LRN-UQ-HNt"/>
                             <constraint firstItem="opJ-Ck-Wb8" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="S2e-P0-Ffm"/>
                             <constraint firstAttribute="trailing" secondItem="s56-yM-Jba" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="S8L-vS-hsC"/>
                             <constraint firstItem="s56-yM-Jba" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="V2H-mB-lkh"/>
-                            <constraint firstAttribute="bottom" secondItem="5v0-rO-GYV" secondAttribute="bottom" constant="133" id="X98-DN-I1V"/>
                             <constraint firstItem="5v0-rO-GYV" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="XbZ-iH-vqh"/>
-                            <constraint firstItem="wZG-F0-v7E" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="244" id="e3e-aE-QtS"/>
-                            <constraint firstAttribute="bottom" secondItem="s56-yM-Jba" secondAttribute="bottom" constant="226" id="g8Z-bj-dF7"/>
+                            <constraint firstItem="opJ-Ck-Wb8" firstAttribute="top" secondItem="s56-yM-Jba" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Xnz-ZQ-o6v"/>
+                            <constraint firstItem="s56-yM-Jba" firstAttribute="top" secondItem="wZG-F0-v7E" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dyF-Cv-Tlx"/>
+                            <constraint firstItem="Ohc-VV-B0v" firstAttribute="top" secondItem="fjt-B2-XIW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gds-EZ-9w6"/>
                             <constraint firstAttribute="trailing" secondItem="wZG-F0-v7E" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kXv-62-bNc"/>
+                            <constraint firstItem="5v0-rO-GYV" firstAttribute="top" secondItem="opJ-Ck-Wb8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nXV-JE-Ifw"/>
                             <constraint firstAttribute="trailing" secondItem="fjt-B2-XIW" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="p2q-7x-Djv"/>
                             <constraint firstItem="wZG-F0-v7E" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="prM-aV-gRI"/>
-                            <constraint firstItem="Ohc-VV-B0v" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="193" id="spV-yB-pvA"/>
+                            <constraint firstItem="wZG-F0-v7E" firstAttribute="top" secondItem="Ohc-VV-B0v" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rRj-IT-tub"/>
                             <constraint firstAttribute="trailing" secondItem="Ohc-VV-B0v" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="t7L-Hj-c50"/>
                             <constraint firstAttribute="trailing" secondItem="opJ-Ck-Wb8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="uvy-8O-7CC"/>
                             <constraint firstItem="fjt-B2-XIW" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="141" id="xt4-Ob-7fW"/>
@@ -238,12 +238,15 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" id="9pY-gd-9Ad"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="m_authorizedIssueNumberTextField" destination="s56-yM-Jba" id="cMD-Jg-rSQ"/>
                         <outlet property="m_cameraButton" destination="gTH-rg-VCu" id="ln7-hv-I3K"/>
                         <outlet property="m_containerInventoryLabel" destination="E7H-u4-kiE" id="Doa-U1-Zcx"/>
                         <outlet property="m_containerSwitch" destination="iwy-Co-ffP" id="RMm-DU-olK"/>
                         <outlet property="m_descriptionTextField" destination="wZG-F0-v7E" id="HXO-Gm-DLj"/>
                         <outlet property="m_nameTextField" destination="fjt-B2-XIW" id="Cdr-3L-tNG"/>
+                        <outlet property="m_nsnTextField" destination="opJ-Ck-Wb8" id="pLC-Cl-AMp"/>
                         <outlet property="m_quantityTextField" destination="Ohc-VV-B0v" id="RLf-Q5-XaS"/>
+                        <outlet property="m_unitOfIssueTextField" destination="5v0-rO-GYV" id="KFi-ym-fkC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6i-fU-5Ai" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,16 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AssetCreateViewController : UIViewController <UIImagePickerControllerDelegate>
+#import "Asset.h"
+
+@interface AssetCreateViewController : UIViewController <UIImagePickerControllerDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *m_cameraButton;
 @property (strong, nonatomic) IBOutlet UILabel *m_containerInventoryLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *m_containerSwitch;
 @property (strong, nonatomic) IBOutlet UITextField *m_nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *m_quantityTextField;
 @property (strong, nonatomic) IBOutlet UITextField *m_descriptionTextField;
+@property (strong, nonatomic) IBOutlet UITextField *m_authorizedIssueNumberTextField;
+@property (strong, nonatomic) IBOutlet UITextField *m_nsnTextField;
+@property (strong, nonatomic) IBOutlet UITextField *m_unitOfIssueTextField;
 @property (strong, nonatomic) UIImagePickerController *picker;
 @property (nonatomic, retain) UIImageView* selectedImage;
+
+@property (strong, nonatomic) Asset *createdAsset;
+
 - (IBAction)cameraButtonPressed:(id)sender;
+- (IBAction)onDoneButton:(id)sender;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
