@@ -13,5 +13,7 @@
 
 @dynamic strName;
 @dynamic strDescription;
+@dynamic strImagePath;
+@dynamic strImagePathThumb;
 
 @end

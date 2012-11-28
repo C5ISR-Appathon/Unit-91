@@ -2,6 +2,8 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Asset" representedClassName="Asset" isAbstract="YES" syncable="YES">
         <attribute name="strDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="strImagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="strImagePathThumb" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="strName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Container" representedClassName="Container" parentEntity="Asset" syncable="YES">
@@ -26,7 +28,7 @@
     <elements>
         <element name="Event" positionX="448" positionY="99" width="128" height="60"/>
         <element name="Inventory" positionX="160" positionY="273" width="128" height="73"/>
-        <element name="Asset" positionX="223" positionY="96" width="128" height="75"/>
+        <element name="Asset" positionX="223" positionY="96" width="128" height="103"/>
         <element name="Container" positionX="-11" positionY="135" width="128" height="58"/>
         <element name="Item" positionX="160" positionY="-96" width="128" height="105"/>
     </elements>
