@@ -43,6 +43,7 @@
     if ([[segue identifier] isEqualToString:@"SegueContainerDetailToAssetCreate"])
     {
         ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        ((AssetCreateViewController*)segue.destinationViewController).m_parentAsset = self.detailItem;
     }
     else if ([[segue identifier] isEqualToString:@"SegueContainerDetailToItemDetail"])
     {
