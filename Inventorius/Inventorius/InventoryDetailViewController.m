@@ -36,7 +36,6 @@
     {
         [self.collectionView reloadData];
     }
-    //Add Add button
 }
 
 - (void)viewDidLoad
