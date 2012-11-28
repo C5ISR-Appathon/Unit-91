@@ -10,6 +10,8 @@
 
 #import "InventoryDetailViewController.h"
 
+#import "InventoryCreateViewController.h"
+
 @interface InventoryListViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -117,7 +119,12 @@
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
     }
-}
+    
+    if ([[segue identifier] isEqualToString:@"SegueToInventoryCreate"])
+    {
+        // pass the managedObjectContext
+        ((InventoryCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }}
 
 #pragma mark - Fetched results controller
 
@@ -125,6 +132,11 @@
 {
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
+    }
+    
+    if (self.managedObjectContext == nil)
+    {
+        NSLog(@"ERROR: ManagedObjectContext = nil");
     }
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -221,7 +233,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    cell.textLabel.text = [[object valueForKey:@"strName"] description];
 }
 
 @end
