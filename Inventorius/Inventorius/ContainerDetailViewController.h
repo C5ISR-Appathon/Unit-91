@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContainerDetailViewController : UICollectionViewController
+#import "Inventory.h"
 
-@property (strong, nonatomic) id detailItem;
+@interface ContainerDetailViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) Inventory* detailItem;
 
 @end
