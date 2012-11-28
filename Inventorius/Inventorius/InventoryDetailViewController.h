@@ -10,7 +10,7 @@
 
 #import "Inventory.h"
 
-@interface InventoryDetailViewController : UICollectionViewController
+@interface InventoryDetailViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

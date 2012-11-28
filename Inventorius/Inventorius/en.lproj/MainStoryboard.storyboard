@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12B2100" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -286,7 +286,6 @@
                                 <connections>
                                     <outlet property="assetTitle" destination="BDg-c2-42z" id="0Vu-sI-8ae"/>
                                     <outlet property="imageView" destination="043-Wd-LJZ" id="Wbt-Uw-1tl"/>
-                                    <segue destination="Nda-uI-YTq" kind="push" identifier="SegueInventoryDetailToItemDetail" id="F23-uv-HCX"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -299,6 +298,7 @@
                     <connections>
                         <segue destination="qTC-eO-wF9" kind="push" identifier="SegueInventoryDetailToAssetCreate" id="aP1-Xl-1Ak"/>
                         <segue destination="Y1g-Yz-vDr" kind="push" identifier="SegueInventoryDetailToContainerDetail" id="MEO-V8-dHQ"/>
+                        <segue destination="Nda-uI-YTq" kind="push" identifier="SegueInventoryDetailToItemDetail" id="04j-q7-miU"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Col-qv-cwc" userLabel="First Responder" sceneMemberID="firstResponder"/>

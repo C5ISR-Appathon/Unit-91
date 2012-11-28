@@ -8,11 +8,13 @@
 
 #import "InventoryDetailViewController.h"
 #import "AssetCollectionViewCell.h"
-#import "Asset.h"
 
+#import "Item.h"
+#import "Container.h"
 #import "ContainerDetailViewController.h"
 #import "ItemDetailViewController.h"
 #import "ItemCreateViewController.h"
+
 
 @interface InventoryDetailViewController ()
 - (void)configureView;
@@ -111,6 +113,19 @@
         cell.imageView.image = [UIImage imageWithContentsOfFile:asset.strImagePathThumb];
     }
     return cell;
+}
+
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:indexPath.row];
+    if([asset isKindOfClass:[Item class]])
+    {
+            [self performSegueWithIdentifier:@"SegueInventoryDetailToItemDetail" sender:self];
+    }
+    else if ([asset isKindOfClass:[Container class]])
+    {
+            [self performSegueWithIdentifier:@"SegueInventoryDetailToContainerDetail" sender:self];
+    }
 }
 
 @end

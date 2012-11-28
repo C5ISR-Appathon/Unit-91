@@ -27,6 +27,10 @@
 		52E1DED816665A2800373F32 /* ItemCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DED116665A2800373F32 /* ItemCreateViewController.m */; };
 		52E1DED916665A2800373F32 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DED316665A2800373F32 /* ItemDetailViewController.m */; };
 		52E1DEE01666734800373F32 /* DefaultContainerImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E1DEDF1666734800373F32 /* DefaultContainerImage.png */; };
+		52E1DEE2166688F100373F32 /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628360166653C300FAFB16 /* Inventory.m */; };
+		52E1DEE3166688F500373F32 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 076283701666555C00FAFB16 /* Asset.m */; };
+		52E1DEE4166688F800373F32 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628363166653C300FAFB16 /* Item.m */; };
+		52E1DEE51666890300373F32 /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628369166653C300FAFB16 /* Container.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -264,6 +268,10 @@
 				52E1DED716665A2800373F32 /* InventoryListViewController.m in Sources */,
 				52E1DED816665A2800373F32 /* ItemCreateViewController.m in Sources */,
 				52E1DED916665A2800373F32 /* ItemDetailViewController.m in Sources */,
+				52E1DEE3166688F500373F32 /* Asset.m in Sources */,
+				52E1DEE4166688F800373F32 /* Item.m in Sources */,
+				52E1DEE51666890300373F32 /* Container.m in Sources */,
+				52E1DEE2166688F100373F32 /* Inventory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
