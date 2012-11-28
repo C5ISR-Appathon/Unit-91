@@ -90,14 +90,17 @@
         [controller setDetailItem:self.selectedItem];
         
         // pass the context
-        ((ItemDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        controller.managedObjectContext = self.managedObjectContext;
     }
     
     if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToAssetCreate"])
     {
+        AssetCreateViewController *controller = ((AssetCreateViewController*)segue.destinationViewController);
+        // set the parent of the creator
+        controller.m_parentAsset = self.detailItem;
+        
         // pass the managedObjectContext
-        ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
-        ((AssetCreateViewController*)segue.destinationViewController).m_parentAsset = self.detailItem;
+        controller.managedObjectContext = self.managedObjectContext;
     }
 }
 
