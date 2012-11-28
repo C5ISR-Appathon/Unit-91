@@ -7,6 +7,8 @@
 //
 
 #import "InventoryDetailViewController.h"
+#import "AssetCollectionViewCell.h"
+#import "Asset.h"
 
 @interface InventoryDetailViewController ()
 - (void)configureView;
@@ -30,9 +32,11 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
+    if (self.detailItem)
+    {
+        [self.collectionView reloadData];
     }
+    //Add Add button
 }
 
 - (void)viewDidLoad
@@ -40,12 +44,46 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddButton:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)onAddButton:(id)sender
+{
+    // do segue to InventoryCreate
+    [self performSegueWithIdentifier:@"SegueToAssetCreate" sender:self];
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.detailItem count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    AssetCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    Asset* asset = [self.detailItem objectAtIndex:(indexPath.row)];
+    if (asset != nil)
+    {
+        cell.assetTitle.text = asset.strName;
+        cell.imageView.image = [UIImage imageWithContentsOfFile:asset.strImagePathThumb];
+    }
+    return cell;
 }
 
 @end

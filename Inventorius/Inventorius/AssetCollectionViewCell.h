@@ -10,4 +10,7 @@
 
 @interface AssetCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *assetTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end
