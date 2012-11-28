@@ -19,7 +19,7 @@
             </objects>
             <point key="canvasLocation" x="-1" y="64"/>
         </scene>
-        <!--Inventory Create View Controller-->
+        <!--Inventory Create View Controller - Create Inventory-->
         <scene sceneID="Ib4-z5-FpG">
             <objects>
                 <viewController id="qlZ-VF-D9p" customClass="InventoryCreateViewController" sceneMemberID="viewController">
@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sZ7-gi-Bmc"/>
+                    <navigationItem key="navigationItem" title="Create Inventory" id="sZ7-gi-Bmc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPL-VB-OVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
