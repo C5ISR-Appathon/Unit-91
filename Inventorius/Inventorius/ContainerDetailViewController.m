@@ -58,15 +58,6 @@
         // pass the context
         controller.managedObjectContext = self.managedObjectContext;
     }
-    else if ([[segue identifier] isEqualToString:@"SegueContainerDetailToContainerDetail"])
-    {
-        // set the detail
-        ContainerDetailViewController* controller = ((ContainerDetailViewController*)segue.destinationViewController);
-        [controller setDetailItem:self.selectedContainer];
-        
-        // pass the context
-        controller.managedObjectContext = self.managedObjectContext;       
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,8 +107,10 @@
     }
     else if ([asset isKindOfClass:[Container class]])
     {
-        self.selectedContainer = (Container*) asset;
-        [self performSegueWithIdentifier:@"SegueContainerDetailToContainerDetail" sender:self];
+        Container *container = (Container*) asset;
+        self.detailItem = container;
+        
+        [self.collectionView reloadData];
     }
 }
 
