@@ -42,35 +42,30 @@
     
     if ([[segue identifier] isEqualToString:@"SegueContainerDetailToAssetCreate"])
     {
-        ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        // set the parent of the creator
         ((AssetCreateViewController*)segue.destinationViewController).m_parentAsset = self.detailItem;
+        
+        // pass the context
+        ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        
     }
     else if ([[segue identifier] isEqualToString:@"SegueContainerDetailToItemDetail"])
     {
-        AssetCollectionViewCell *cell = sender;
-        NSIndexPath *cellIndex = [self.collectionView indexPathForCell:cell];
-        Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:cellIndex.row];
-        Item* item = (Item*)asset;
+        // set the detail
         ItemDetailViewController* controller = ((ItemDetailViewController*)segue.destinationViewController);
-        [controller setDetailItem:item];
+        [controller setDetailItem:self.selectedItem];
+        
+        // pass the context
         controller.managedObjectContext = self.managedObjectContext;
     }
     else if ([[segue identifier] isEqualToString:@"SegueContainerDetailToContainerDetail"])
     {
-        AssetCollectionViewCell *cell = sender;
-        NSIndexPath *cellIndex = [self.collectionView indexPathForCell:cell];
-        Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:cellIndex.row];
-
-        if([asset isKindOfClass:[Item class]])
-        {
-            [self performSegueWithIdentifier:@"SegueContainerDetailToItemDetail" sender:self];
-        }
-        else
-        {
-            Container* container = (Container*)asset;
-            [segue.destinationViewController setDetailItem:container];
-            ((ContainerDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
-        }
+        // set the detail
+        ContainerDetailViewController* controller = ((ContainerDetailViewController*)segue.destinationViewController);
+        [controller setDetailItem:self.selectedContainer];
+        
+        // pass the context
+        controller.managedObjectContext = self.managedObjectContext;       
     }
 }
 
@@ -113,16 +108,17 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //This code exists in preparingSegue now
-//    Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:indexPath.row];
-//    if([asset isKindOfClass:[Item class]])
-//    {
-//        [self performSegueWithIdentifier:@"SegueContainerDetailToItemDetail" sender:self];
-//    }
-//    else if ([asset isKindOfClass:[Container class]])
-//    {
-//        [self performSegueWithIdentifier:@"SegueContainerDetailToContainerDetail" sender:self];
-//    }
+    Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:indexPath.row];
+    if([asset isKindOfClass:[Item class]])
+    {
+        self.selectedItem = (Item*) asset;
+        [self performSegueWithIdentifier:@"SegueContainerDetailToItemDetail" sender:self];
+    }
+    else if ([asset isKindOfClass:[Container class]])
+    {
+        self.selectedContainer = (Container*) asset;
+        [self performSegueWithIdentifier:@"SegueContainerDetailToContainerDetail" sender:self];
+    }
 }
 
 @end

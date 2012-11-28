@@ -75,33 +75,32 @@
 {
     if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToContainerDetail"])
     {
-        // pass the managedObjectContext
-        AssetCollectionViewCell *cell = sender;
-        NSIndexPath *cellIndex = [self.collectionView indexPathForCell:cell];
-        Container* container = [self.detailItem.assets.allObjects objectAtIndex:cellIndex.row];
-
+        // set the detail
         ContainerDetailViewController* controller = ((ContainerDetailViewController*)segue.destinationViewController);
-        [controller setDetailItem:container];
+        [controller setDetailItem:self.selectedContainer];
+        
+        // pass the context
         controller.managedObjectContext = self.managedObjectContext;
     }
     
     if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToItemDetail"])
     {
-        // pass the managedObjectContext
-        AssetCollectionViewCell *cell = sender;
-        NSIndexPath *cellIndex = [self.collectionView indexPathForCell:cell];
-        Item* item = [self.detailItem.assets.allObjects objectAtIndex:cellIndex.row];
-        
+        // set the detail
         ItemDetailViewController* controller = ((ItemDetailViewController*)segue.destinationViewController);
-        [controller setDetailItem:item];
-        ((ItemDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        [controller setDetailItem:self.selectedItem];
+        
+        // pass the context
+        controller.managedObjectContext = self.managedObjectContext;
     }
     
     if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToAssetCreate"])
     {
+        AssetCreateViewController *controller = ((AssetCreateViewController*)segue.destinationViewController);
+        // set the parent of the creator
+        controller.m_parentAsset = self.detailItem;
+        
         // pass the managedObjectContext
-        ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
-        ((AssetCreateViewController*)segue.destinationViewController).m_parentAsset = self.detailItem;
+        controller.managedObjectContext = self.managedObjectContext;
     }
 }
 
@@ -146,10 +145,12 @@
     Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:indexPath.row];
     if([asset isKindOfClass:[Item class]])
     {
+        self.selectedItem = (Item*) asset;
         [self performSegueWithIdentifier:@"SegueInventoryDetailToItemDetail" sender:self];
     }
     else if ([asset isKindOfClass:[Container class]])
     {
+        self.selectedContainer = (Container*) asset;
         [self performSegueWithIdentifier:@"SegueInventoryDetailToContainerDetail" sender:self];
     }
 }

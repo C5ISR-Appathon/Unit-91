@@ -102,7 +102,7 @@
 - (IBAction)onDoneButton:(id)sender {
     
     //If is container
-    if (m_containerSwitch.isSelected)
+    if (m_containerSwitch.isOn)
     {        
         self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
         if ([self.createdAsset isKindOfClass:[Container class]])
@@ -116,10 +116,11 @@
         self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
         if ([self.createdAsset isKindOfClass:[Item class]])
         {
-            ((Item *) self.createdAsset).nsn = m_nsnTextField.text;
-            ((Item *) self.createdAsset).authorizedIssue = [NSDecimalNumber decimalNumberWithString:m_authorizedIssueNumberTextField.text];
-            ((Item *) self.createdAsset).quantity = [NSDecimalNumber decimalNumberWithString:m_quantityTextField.text];
-            ((Item *) self.createdAsset).unitOfIssue = [NSDecimalNumber decimalNumberWithString:m_unitOfIssueTextField.text];
+            Item *item = (Item*)self.createdAsset;
+            item.nsn = m_nsnTextField.text;
+            item.authorizedIssue = [NSDecimalNumber decimalNumberWithString:m_authorizedIssueNumberTextField.text];
+            item.quantity = [NSDecimalNumber decimalNumberWithString:m_quantityTextField.text];
+            item.unitOfIssue = [NSDecimalNumber decimalNumberWithString:m_unitOfIssueTextField.text];
         }
     }
     self.createdAsset.strDescription = m_descriptionTextField.text;
@@ -150,6 +151,23 @@
             NSLog(@"Could not save: %@", error.description);
         }
         [self performSegueWithIdentifier:@"SegueAssetCreateToInventoryDetail" sender:self];
+    }
+}
+
+- (IBAction)onSwitch:(id)sender {
+    if (m_containerSwitch.isOn)
+    {
+        m_quantityTextField.hidden = true;
+        m_authorizedIssueNumberTextField.hidden = true;
+        m_nsnTextField.hidden = true;
+        m_unitOfIssueTextField.hidden = true;
+    }
+    else
+    {
+        m_quantityTextField.hidden = false;
+        m_authorizedIssueNumberTextField.hidden = false;
+        m_nsnTextField.hidden = false;
+        m_unitOfIssueTextField.hidden = false;
     }
 }
 

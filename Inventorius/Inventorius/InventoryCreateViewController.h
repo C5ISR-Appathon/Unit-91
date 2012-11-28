@@ -25,8 +25,5 @@
 @property (strong, nonatomic) UIImagePickerController *picker;
 //@property (nonatomic, retain) UIImageView* selectedImage;
 - (IBAction)cameraButtonPressed:(id)sender;
-- (IBAction)nameEntered:(id)sender;
-- (IBAction)ownerEntered:(id)sender;
-- (IBAction)descriptionEntered:(id)sender;
 
 @end

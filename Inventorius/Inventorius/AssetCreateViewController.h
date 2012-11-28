@@ -28,6 +28,7 @@
 
 - (IBAction)cameraButtonPressed:(id)sender;
 - (IBAction)onDoneButton:(id)sender;
+- (IBAction)onSwitch:(id)sender;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

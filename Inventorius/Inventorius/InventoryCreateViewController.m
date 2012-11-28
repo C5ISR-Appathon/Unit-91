@@ -24,6 +24,7 @@
 @synthesize m_ownerTextField;
 @synthesize m_descriptionTextField;
 @synthesize picker;
+@synthesize m_imagePath;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +37,13 @@
 
 - (void)onDoneButton:(id) sender
 {
+    
+    self.createdInventory = [NSEntityDescription insertNewObjectForEntityForName:@"Inventory" inManagedObjectContext:self.managedObjectContext];
+    self.createdInventory.strImagePath = m_imagePath;
+    self.createdInventory.strName = m_nameTextField.text;
+    self.createdInventory.owner = m_ownerTextField.text;
+    self.createdInventory.strDescription = m_descriptionTextField.text;
+    
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Couldn't save: %@", [error localizedDescription]);
@@ -48,10 +56,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.createdInventory = [NSEntityDescription insertNewObjectForEntityForName:@"Inventory" inManagedObjectContext:self.managedObjectContext];
     
-    self.createdInventory.strName = @"New Inventory";
-    self.createdInventory.owner = @"The Owner";
+    
+    //self.createdInventory.strName = @"New Inventory";
+    //self.createdInventory.owner = @"The Owner";
 	// Do any additional setup after loading the view.
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDoneButton:)];
@@ -100,19 +108,6 @@
     }
     
     [self presentViewController:picker animated:YES completion:^{}];
-}
-
-- (IBAction)nameEntered:(id)sender {
-    self.createdInventory.strName = m_nameTextField.text;
-
-}
-
-- (IBAction)ownerEntered:(id)sender {
-    self.createdInventory.owner = m_ownerTextField.text;
-}
-
-- (IBAction)descriptionEntered:(id)sender {
-    self.createdInventory.strDescription = m_descriptionTextField.text;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*) Picker {

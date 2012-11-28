@@ -49,16 +49,10 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yZn-np-sdU">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="descriptionEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="5Qk-sv-roo"/>
-                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Owner" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="diI-T2-jSw">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="ownerEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="Xl1-oe-B1E"/>
-                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EJQ-Nv-SJb">
                                         <constraints>
@@ -66,9 +60,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="nameEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="t3S-Mc-WpB"/>
-                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -196,7 +187,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwy-Co-ffP"/>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iwy-Co-ffP">
+                                <connections>
+                                    <action selector="onSwitch:" destination="qTC-eO-wF9" eventType="valueChanged" id="VhS-AL-msL"/>
+                                </connections>
+                            </switch>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njG-H6-J1d">
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fjt-B2-XIW">
@@ -227,24 +222,24 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="opJ-Ck-Wb8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="87U-8y-mvo"/>
                                     <constraint firstAttribute="trailing" secondItem="5v0-rO-GYV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ACt-vt-xmW"/>
-                                    <constraint firstItem="wZG-F0-v7E" firstAttribute="top" secondItem="Ohc-VV-B0v" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Fkh-RB-JsX"/>
-                                    <constraint firstItem="s56-yM-Jba" firstAttribute="centerX" secondItem="njG-H6-J1d" secondAttribute="centerX" type="default" id="HBu-HR-IAJ"/>
-                                    <constraint firstItem="s56-yM-Jba" firstAttribute="top" secondItem="wZG-F0-v7E" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="I0Z-nG-fU5"/>
                                     <constraint firstItem="fjt-B2-XIW" firstAttribute="leading" secondItem="njG-H6-J1d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="IAJ-fM-gr1"/>
                                     <constraint firstItem="Ohc-VV-B0v" firstAttribute="leading" secondItem="njG-H6-J1d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="MBU-25-Iqa"/>
+                                    <constraint firstItem="s56-yM-Jba" firstAttribute="top" secondItem="Ohc-VV-B0v" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="NVR-rL-LBg"/>
                                     <constraint firstItem="fjt-B2-XIW" firstAttribute="top" secondItem="njG-H6-J1d" secondAttribute="top" constant="10" id="NXy-E7-wyI"/>
                                     <constraint firstItem="opJ-Ck-Wb8" firstAttribute="leading" secondItem="njG-H6-J1d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Qmm-bN-cXo"/>
                                     <constraint firstItem="wZG-F0-v7E" firstAttribute="leading" secondItem="njG-H6-J1d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Qno-Pe-cGk"/>
                                     <constraint firstAttribute="trailing" secondItem="Ohc-VV-B0v" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Qyt-8g-EmM"/>
+                                    <constraint firstAttribute="bottom" secondItem="5v0-rO-GYV" secondAttribute="bottom" constant="110" id="RbY-1e-pwg"/>
                                     <constraint firstItem="opJ-Ck-Wb8" firstAttribute="top" secondItem="s56-yM-Jba" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="UAD-sJ-ZY9"/>
                                     <constraint firstItem="5v0-rO-GYV" firstAttribute="top" secondItem="opJ-Ck-Wb8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="VoD-Kz-iiC"/>
                                     <constraint firstAttribute="trailing" secondItem="s56-yM-Jba" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ft6-ZU-Xwd"/>
                                     <constraint firstAttribute="trailing" secondItem="fjt-B2-XIW" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="jhY-fs-qoP"/>
+                                    <constraint firstItem="5v0-rO-GYV" firstAttribute="centerX" secondItem="njG-H6-J1d" secondAttribute="centerX" type="default" id="jqR-Gm-Csd"/>
+                                    <constraint firstItem="Ohc-VV-B0v" firstAttribute="top" secondItem="wZG-F0-v7E" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mEE-gW-kXM"/>
                                     <constraint firstAttribute="trailing" secondItem="wZG-F0-v7E" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ngO-ZQ-JfO"/>
                                     <constraint firstItem="s56-yM-Jba" firstAttribute="leading" secondItem="njG-H6-J1d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pUd-Ks-U9A"/>
-                                    <constraint firstAttribute="bottom" secondItem="5v0-rO-GYV" secondAttribute="bottom" constant="110" id="qC3-YL-bUN"/>
-                                    <constraint firstItem="Ohc-VV-B0v" firstAttribute="top" secondItem="fjt-B2-XIW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="tJk-di-hOl"/>
                                     <constraint firstItem="5v0-rO-GYV" firstAttribute="leading" secondItem="njG-H6-J1d" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="vsi-i5-STC"/>
+                                    <constraint firstItem="wZG-F0-v7E" firstAttribute="top" secondItem="fjt-B2-XIW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xQ8-Wn-nu8"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -396,7 +391,7 @@
                     <navigationItem key="navigationItem" id="rhR-j7-YOC"/>
                     <connections>
                         <segue destination="qTC-eO-wF9" kind="push" identifier="SegueContainerDetailToAssetCreate" id="sjT-Op-06V"/>
-                        <segue destination="Nda-uI-YTq" kind="push" identifier="SegueContainerDetailViewToItemDetailView" id="H9m-Kk-IXa"/>
+                        <segue destination="Nda-uI-YTq" kind="push" identifier="SegueContainerDetailToItemDetail" id="H9m-Kk-IXa"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iac-7y-QMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -588,6 +583,7 @@
             <relationships>
                 <relationship kind="action" name="cameraButtonPressed:"/>
                 <relationship kind="action" name="onDoneButton:"/>
+                <relationship kind="action" name="onSwitch:"/>
                 <relationship kind="outlet" name="m_authorizedIssueNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="m_cameraButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="m_containerInventoryLabel" candidateClass="UILabel"/>
@@ -606,9 +602,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InventoryCreateViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cameraButtonPressed:"/>
-                <relationship kind="action" name="descriptionEntered:"/>
-                <relationship kind="action" name="nameEntered:"/>
-                <relationship kind="action" name="ownerEntered:"/>
                 <relationship kind="outlet" name="m_cameraButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="m_descriptionTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="m_nameTextField" candidateClass="UITextField"/>
@@ -651,17 +644,16 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
+>>>>>>> 766878a327f877fe7e3624e14cf962dc6af0b5d4
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="h82-Ig-Co5"/>
-        <segue reference="04j-q7-miU"/>
-        <segue reference="Bcf-VU-Ugl"/>
-        <segue reference="MEO-V8-dHQ"/>
         <segue reference="jg3-eW-ErD"/>
+        <segue reference="Bcf-VU-Ugl"/>
+        <segue reference="sjT-Op-06V"/>
         <segue reference="0hJ-Pp-JHr"/>
         <segue reference="H9m-Kk-IXa"/>
     </inferredMetricsTieBreakers>
