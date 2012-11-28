@@ -268,7 +268,7 @@
                     <navigationItem key="navigationItem" id="tmk-Jy-Nza"/>
                     <connections>
                         <segue destination="qTC-eO-wF9" kind="push" identifier="SegueToAssetCreate" id="aP1-Xl-1Ak"/>
-                        <segue destination="Y1g-Yz-vDr" kind="push" id="MEO-V8-dHQ"/>
+                        <segue destination="Y1g-Yz-vDr" kind="push" identifier="SegueInventoryDetailToContainerDetail" id="MEO-V8-dHQ"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Col-qv-cwc" userLabel="First Responder" sceneMemberID="firstResponder"/>

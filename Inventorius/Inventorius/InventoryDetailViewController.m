@@ -10,6 +10,8 @@
 #import "AssetCollectionViewCell.h"
 #import "Asset.h"
 
+#import "ContainerDetailViewController.h"
+
 @interface InventoryDetailViewController ()
 - (void)configureView;
 @end
@@ -59,6 +61,12 @@
     {        
         // pass the managedObjectContext
         ((InventoryDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToContainerDetail"])
+    {
+        // pass the managedObjectContext
+        ((ContainerDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
 }
 
