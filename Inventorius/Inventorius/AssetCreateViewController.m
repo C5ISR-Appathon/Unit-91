@@ -56,6 +56,7 @@
     m_authorizedIssueNumberTextField.delegate = self;
     m_nsnTextField.delegate = self;
     m_unitOfIssueTextField.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning
