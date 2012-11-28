@@ -10,6 +10,8 @@
 #import "AssetCollectionViewCell.h"
 #import "Asset.h"
 
+#import "ContainerDetailViewController.h"
+
 @interface InventoryDetailViewController ()
 - (void)configureView;
 @end
@@ -20,7 +22,8 @@
 
 - (void)setDetailItem:(id)newDetailItem
 {
-    if (_detailItem != newDetailItem) {
+    if (_detailItem != newDetailItem)
+    {
         _detailItem = newDetailItem;
         
         // Update the view.
@@ -36,7 +39,6 @@
     {
         [self.collectionView reloadData];
     }
-    //Add Add button
 }
 
 - (void)viewDidLoad
@@ -48,6 +50,24 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddButton:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
+    self.title = self.detailItem.strName;
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([[segue identifier] isEqualToString:@"SegueToInventoryDetail"])
+    {        
+        // pass the managedObjectContext
+        ((InventoryDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToContainerDetail"])
+    {
+        // pass the managedObjectContext
+        ((ContainerDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,13 +91,13 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.detailItem count];
+    return [self.detailItem.assets count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     AssetCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    Asset* asset = [self.detailItem objectAtIndex:(indexPath.row)];
+    Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:(indexPath.row)];
     if (asset != nil)
     {
         cell.assetTitle.text = asset.strName;

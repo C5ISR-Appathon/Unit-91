@@ -7,10 +7,12 @@
 //
 
 #import "InventoryListViewController.h"
-
 #import "InventoryDetailViewController.h"
-
 #import "InventoryCreateViewController.h"
+
+#import "Inventory.h"
+#import "Item.h"
+#import "Container.h"
 
 @interface InventoryListViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -47,11 +49,27 @@
     /*
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    Inventory* inventory = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    //NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"strName"];
+    inventory.strName = @"Deployment 1";
+
+    Container* container = [NSEntityDescription insertNewObjectForEntityForName:@"Container" inManagedObjectContext:context];
+    container.strName = @"Duffle Bag";
+    container.strImagePathThumb = @"DefaultContainerImage.png";
+    
+
+    //(AppDelegate*)[UIApplication sharedApplication]
+    Item* item = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+    item.strName = @"Shirt";
+    item.strImagePathThumb = @"DefaultContainerImage.png";
+    
+    container.assets = [NSSet setWithObject:item];
+    
+    inventory.assets = [NSSet setWithObject:container];
+    
     
     // Save the context.
     NSError *error = nil;
@@ -114,17 +132,22 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"SegueToInventoryDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
+    
+        // pass the managedObjectContext
+        ((InventoryDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
     
     if ([[segue identifier] isEqualToString:@"SegueToInventoryCreate"])
     {
         // pass the managedObjectContext
         ((InventoryCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
-    }}
+    }
+
+}
 
 #pragma mark - Fetched results controller
 
@@ -142,7 +165,13 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Inventory" inManagedObjectContext:self.managedObjectContext];
+//    NSEntityDescription *asset = [NSEntityDescription entityForName:@"Asset" inManagedObjectContext:self.managedObjectContext];
+//    NSEntityDescription *container = [NSEntityDescription entityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
+//    NSEntityDescription *item = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
+//    [fetchRequest setEntity:asset];
+//    [fetchRequest setEntity:container];
+//    [fetchRequest setEntity:item];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
@@ -233,7 +262,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"strName"] description];
+    cell.textLabel.text = [object valueForKey:@"strName"];
 }
 
 @end

@@ -92,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPL-VB-OVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="991" y="-774"/>
+            <point key="canvasLocation" x="961" y="-302"/>
         </scene>
         <!--Inventory List View Controller - Inventories-->
         <scene sceneID="18">
@@ -243,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6i-fU-5Ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="938"/>
+            <point key="canvasLocation" x="1757" y="1186"/>
         </scene>
         <!--Inventory Detail View Controller-->
         <scene sceneID="U0o-iD-aaY">
@@ -298,12 +298,12 @@
                     <navigationItem key="navigationItem" id="tmk-Jy-Nza"/>
                     <connections>
                         <segue destination="qTC-eO-wF9" kind="push" identifier="SegueToAssetCreate" id="aP1-Xl-1Ak"/>
-                        <segue destination="Y1g-Yz-vDr" kind="push" id="MEO-V8-dHQ"/>
+                        <segue destination="Y1g-Yz-vDr" kind="push" identifier="SegueInventoryDetailToContainerDetail" id="MEO-V8-dHQ"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Col-qv-cwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="176"/>
+            <point key="canvasLocation" x="961" y="486"/>
         </scene>
         <!--Container Detail View Controller-->
         <scene sceneID="3pN-sf-2C3">
@@ -361,7 +361,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iac-7y-QMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1749" y="-500"/>
+            <point key="canvasLocation" x="1757" y="-222"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="emE-xS-0lo">
@@ -376,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWF-in-psn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="211"/>
+            <point key="canvasLocation" x="1757" y="486"/>
         </scene>
     </scenes>
     <classes>
@@ -449,7 +449,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aP1-Xl-1Ak"/>
         <segue reference="jg3-eW-ErD"/>
+        <segue reference="sjT-Op-06V"/>
     </inferredMetricsTieBreakers>
 </document>
