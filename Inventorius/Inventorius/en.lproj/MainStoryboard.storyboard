@@ -400,7 +400,7 @@
                     <navigationItem key="navigationItem" id="rhR-j7-YOC"/>
                     <connections>
                         <segue destination="qTC-eO-wF9" kind="push" identifier="SegueContainerDetailToAssetCreate" id="sjT-Op-06V"/>
-                        <segue destination="Nda-uI-YTq" kind="push" identifier="SegueContainerDetailViewToItemDetailView" id="H9m-Kk-IXa"/>
+                        <segue destination="Nda-uI-YTq" kind="push" identifier="SegueContainerDetailToItemDetail" id="H9m-Kk-IXa"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iac-7y-QMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -579,93 +579,16 @@
             <point key="canvasLocation" x="1757" y="486"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AssetCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AssetCollectionViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="assetTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="AssetCreateViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AssetCreateViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cameraButtonPressed:"/>
-                <relationship kind="action" name="onDoneButton:"/>
-                <relationship kind="action" name="onSwitch:"/>
-                <relationship kind="outlet" name="m_authorizedIssueNumberTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="m_cameraButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="m_containerInventoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="m_containerSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="m_descriptionTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="m_nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="m_nsnTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="m_quantityTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="m_unitOfIssueTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ContainerDetailViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContainerDetailViewController.h"/>
-        </class>
-        <class className="InventoryCreateViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InventoryCreateViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cameraButtonPressed:"/>
-                <relationship kind="action" name="descriptionEntered:"/>
-                <relationship kind="action" name="nameEntered:"/>
-                <relationship kind="action" name="ownerEntered:"/>
-                <relationship kind="outlet" name="m_cameraButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="m_descriptionTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="m_nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="m_ownerTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="InventoryDetailViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InventoryDetailViewController.h"/>
-        </class>
-        <class className="InventoryListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InventoryListViewController.h"/>
-        </class>
-        <class className="ItemDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="NSNLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="authorizedIssueLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="quantityLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="strNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="unitOfIssueLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="H9m-Kk-IXa"/>
-        <segue reference="0hJ-Pp-JHr"/>
-        <segue reference="h82-Ig-Co5"/>
-        <segue reference="Bcf-VU-Ugl"/>
         <segue reference="jg3-eW-ErD"/>
+        <segue reference="Bcf-VU-Ugl"/>
+        <segue reference="sjT-Op-06V"/>
+        <segue reference="0hJ-Pp-JHr"/>
+        <segue reference="H9m-Kk-IXa"/>
     </inferredMetricsTieBreakers>
 </document>

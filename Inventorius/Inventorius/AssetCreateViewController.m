@@ -116,10 +116,11 @@
         self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
         if ([self.createdAsset isKindOfClass:[Item class]])
         {
-            ((Item *) self.createdAsset).nsn = m_nsnTextField.text;
-            ((Item *) self.createdAsset).authorizedIssue = [NSDecimalNumber decimalNumberWithString:m_authorizedIssueNumberTextField.text];
-            ((Item *) self.createdAsset).quantity = [NSDecimalNumber decimalNumberWithString:m_quantityTextField.text];
-            ((Item *) self.createdAsset).unitOfIssue = [NSDecimalNumber decimalNumberWithString:m_unitOfIssueTextField.text];
+            Item *item = (Item*)self.createdAsset;
+            item.nsn = m_nsnTextField.text;
+            item.authorizedIssue = [NSDecimalNumber decimalNumberWithString:m_authorizedIssueNumberTextField.text];
+            item.quantity = [NSDecimalNumber decimalNumberWithString:m_quantityTextField.text];
+            item.unitOfIssue = [NSDecimalNumber decimalNumberWithString:m_unitOfIssueTextField.text];
         }
     }
     self.createdAsset.strDescription = m_descriptionTextField.text;

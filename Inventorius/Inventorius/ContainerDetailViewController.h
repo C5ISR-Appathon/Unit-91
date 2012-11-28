@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "Container.h"
+#import "Item.h"
 
 @interface ContainerDetailViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
 
@@ -16,5 +17,8 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) Container* detailItem;
+
+@property Container *selectedContainer;
+@property Item *selectedItem;
 
 @end
