@@ -97,15 +97,22 @@
     [[self parentViewController] dismissViewControllerAnimated:YES completion:^{}];
     Picker = nil;
     
+    
+    
     selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
     
     [m_cameraButton setBackgroundImage:selectedImage forState:UIControlStateNormal];
     
     NSMutableString  *jpgPath = [[NSMutableString alloc] init];
     
-    [jpgPath appendString:@"/inventorius/"];
+    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSString* urlPath = [url path];
+    
+    [jpgPath appendString:urlPath];
+    [jpgPath appendString:@"/"];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"MMM-dd-yyyy_HH-mm-ss"];
     
     NSDate* currentTime = [NSDate date];
     
@@ -119,5 +126,6 @@
     [jpg writeToFile:jpgPath atomically:NO];
     
     //self.createdInventory.strImagePath = jpgPath;
+
     }
 @end
