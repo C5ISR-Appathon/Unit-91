@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "Inventory.h"
+#import "Asset.h"
 
 @interface InventoryCreateViewController : UIViewController <UIImagePickerControllerDelegate, UITextFieldDelegate>
 

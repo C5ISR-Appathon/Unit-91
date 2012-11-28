@@ -263,6 +263,8 @@
                         <outlet property="m_nsnTextField" destination="opJ-Ck-Wb8" id="pLC-Cl-AMp"/>
                         <outlet property="m_quantityTextField" destination="Ohc-VV-B0v" id="RLf-Q5-XaS"/>
                         <outlet property="m_unitOfIssueTextField" destination="5v0-rO-GYV" id="KFi-ym-fkC"/>
+                        <segue destination="HR9-Cr-QsZ" kind="push" identifier="SegueAssetCreateToInventoryDetail" id="Bcf-VU-Ugl"/>
+                        <segue destination="Y1g-Yz-vDr" kind="push" identifier="SegueAssetCreateToContainerDetail" id="0hJ-Pp-JHr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6i-fU-5Ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -644,8 +646,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jg3-eW-ErD"/>
-        <segue reference="MEO-V8-dHQ"/>
         <segue reference="H9m-Kk-IXa"/>
         <segue reference="h82-Ig-Co5"/>
     </inferredMetricsTieBreakers>

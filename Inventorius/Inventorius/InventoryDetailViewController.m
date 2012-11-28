@@ -88,6 +88,7 @@
     {
         // pass the managedObjectContext
         ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        ((AssetCreateViewController*)segue.destinationViewController).m_parentAsset = self.detailItem;
     }
 }
 

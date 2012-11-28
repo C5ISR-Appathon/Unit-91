@@ -28,6 +28,7 @@
 @synthesize m_nsnTextField;
 @synthesize m_unitOfIssueTextField;
 @synthesize m_assetPath;
+@synthesize m_parentAsset;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,7 +46,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Asset" inManagedObjectContext:self.managedObjectContext];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDoneButton:)];
+    
+    self.navigationItem.rightBarButtonItem = doneButton;
+    
+    m_nameTextField.delegate = self;
+    m_quantityTextField.delegate = self;
+    m_descriptionTextField.delegate = self;
+    m_authorizedIssueNumberTextField.delegate = self;
+    m_nsnTextField.delegate = self;
+    m_unitOfIssueTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,6 +81,21 @@
     [self presentViewController:picker animated:YES completion:^{}];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"SegueAssetCreateToInventoryDetail"])
+    {
+        ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }
+    else if ([[segue identifier] isEqualToString:@"SegueAssetCreateToContainerDetail"])
+    {
+        ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }
+    
+    
+    
+}
+
 - (IBAction)onDoneButton:(id)sender {
     
     //If is container
@@ -80,7 +105,7 @@
         self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
         if ([self.createdAsset isKindOfClass:[Container class]])
         {
-            
+            ((Container *) self.createdAsset).assets = [[NSSet alloc] init];
         }
         
     }
@@ -98,6 +123,16 @@
     self.createdAsset.strDescription = m_descriptionTextField.text;
     self.createdAsset.strImagePath = m_assetPath;
     self.createdAsset.strName = m_nameTextField.text;
+    
+    //Check to see who pushed to us; we want to return to them
+    if ([m_parentAsset isKindOfClass:[Container class]])
+    {
+        [self performSegueWithIdentifier:@"SegueAssetCreateToContainerDetail" sender:self];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"SegueAssetCreateToInventoryDetail" sender:self];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

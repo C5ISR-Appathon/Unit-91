@@ -24,6 +24,7 @@
 @property (nonatomic, retain) UIImageView* selectedImage;
 @property (strong, nonatomic) NSString* m_assetPath;
 @property (strong, nonatomic) Asset *createdAsset;
+@property (strong, nonatomic) Asset* m_parentAsset;
 
 - (IBAction)cameraButtonPressed:(id)sender;
 - (IBAction)onDoneButton:(id)sender;
