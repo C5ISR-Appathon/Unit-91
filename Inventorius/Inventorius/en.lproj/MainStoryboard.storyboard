@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12B2100" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -422,23 +422,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oX-y6-Zsd">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="89" id="b2f-oL-u1H"/>
-                                    <constraint firstAttribute="width" constant="91" id="c6w-lM-GIS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cameraButtonPressed:" destination="qTC-eO-wF9" eventType="touchUpInside" id="j5L-Fh-NYt"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHq-wJ-e4d">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="gdD-tt-lBc"/>
@@ -517,6 +500,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jO5-i9-Fzb">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="4BB-Of-IMz"/>
+                                    <constraint firstAttribute="width" constant="130" id="zv3-0Q-jp8"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -528,7 +517,6 @@
                             <constraint firstItem="wHq-wJ-e4d" firstAttribute="leading" secondItem="kkH-vX-bSg" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="KtV-AB-1V8"/>
                             <constraint firstItem="jUw-Bb-faW" firstAttribute="baseline" secondItem="JxS-vE-FD3" secondAttribute="baseline" type="default" id="L76-va-e0H"/>
                             <constraint firstAttribute="trailing" secondItem="25B-V5-ExP" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Lq4-B8-hfW"/>
-                            <constraint firstItem="3oX-y6-Zsd" firstAttribute="leading" secondItem="yBD-H8-FHO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Nar-nb-tHE"/>
                             <constraint firstItem="QJy-Ca-di1" firstAttribute="top" secondItem="80k-ve-cLJ" secondAttribute="top" type="default" id="NbH-TD-kho"/>
                             <constraint firstItem="jUw-Bb-faW" firstAttribute="leading" secondItem="JxS-vE-FD3" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="PTE-MA-uQd"/>
                             <constraint firstItem="25B-V5-ExP" firstAttribute="leading" secondItem="jUw-Bb-faW" secondAttribute="leading" type="default" id="TOu-4U-q2V"/>
@@ -541,7 +529,8 @@
                             <constraint firstItem="JxS-vE-FD3" firstAttribute="top" secondItem="yBD-H8-FHO" secondAttribute="top" constant="219" id="eei-O4-Mvk"/>
                             <constraint firstItem="kkH-vX-bSg" firstAttribute="leading" secondItem="yBD-H8-FHO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ftm-WO-4Tl"/>
                             <constraint firstItem="bOA-tv-bf7" firstAttribute="top" secondItem="aHE-Fk-iQY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gH8-tE-vwf"/>
-                            <constraint firstItem="FDR-MI-fld" firstAttribute="top" secondItem="yBD-H8-FHO" secondAttribute="top" constant="136" id="gLG-Ak-5fy"/>
+                            <constraint firstItem="jO5-i9-Fzb" firstAttribute="top" secondItem="yBD-H8-FHO" secondAttribute="top" constant="11" id="gQo-9C-Bvc"/>
+                            <constraint firstItem="jO5-i9-Fzb" firstAttribute="leading" secondItem="yBD-H8-FHO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hAO-ri-NCx"/>
                             <constraint firstItem="80k-ve-cLJ" firstAttribute="leading" secondItem="QJy-Ca-di1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="hSH-9R-Uge"/>
                             <constraint firstItem="wHq-wJ-e4d" firstAttribute="centerY" secondItem="kkH-vX-bSg" secondAttribute="centerY" type="default" id="jgN-Md-nPe"/>
                             <constraint firstItem="bOA-tv-bf7" firstAttribute="leading" secondItem="yBD-H8-FHO" secondAttribute="leading" constant="15" id="kaA-nN-J7T"/>
@@ -549,8 +538,8 @@
                             <constraint firstItem="FDR-MI-fld" firstAttribute="centerX" secondItem="25B-V5-ExP" secondAttribute="centerX" type="default" id="nKF-8a-mna"/>
                             <constraint firstItem="JxS-vE-FD3" firstAttribute="top" secondItem="jUw-Bb-faW" secondAttribute="top" type="default" id="na7-uy-yu1"/>
                             <constraint firstItem="kkH-vX-bSg" firstAttribute="top" secondItem="FDR-MI-fld" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oLs-4M-E7p"/>
-                            <constraint firstItem="3oX-y6-Zsd" firstAttribute="top" secondItem="yBD-H8-FHO" secondAttribute="top" constant="20" symbolic="YES" type="default" id="pBk-zf-LdQ"/>
                             <constraint firstItem="25B-V5-ExP" firstAttribute="top" secondItem="Xgj-Lu-dqU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="q8k-jQ-mvo"/>
+                            <constraint firstItem="FDR-MI-fld" firstAttribute="top" secondItem="yBD-H8-FHO" secondAttribute="top" constant="136" id="sWn-Uu-tYN"/>
                             <constraint firstItem="jWo-tg-tVQ" firstAttribute="leading" secondItem="yBD-H8-FHO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="vko-zV-Pik"/>
                         </constraints>
                     </view>
@@ -559,6 +548,7 @@
                         <outlet property="NSNLabel" destination="Xgj-Lu-dqU" id="5E1-j9-f2B"/>
                         <outlet property="authorizedIssueLabel" destination="80k-ve-cLJ" id="fzX-ra-dgY"/>
                         <outlet property="descriptionLabel" destination="jUw-Bb-faW" id="gWY-mz-kAz"/>
+                        <outlet property="imageView" destination="jO5-i9-Fzb" id="SAa-Pz-jvQ"/>
                         <outlet property="quantityLabel" destination="wHq-wJ-e4d" id="kyI-uP-vI6"/>
                         <outlet property="strNameLabel" destination="FDR-MI-fld" id="OV4-R3-lQa"/>
                         <outlet property="unitOfIssueLabel" destination="25B-V5-ExP" id="Wie-7P-uOp"/>
@@ -620,6 +610,7 @@
                 <relationship kind="outlet" name="NSNLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="authorizedIssueLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="quantityLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="strNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="unitOfIssueLabel" candidateClass="UILabel"/>
@@ -644,17 +635,16 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
->>>>>>> 766878a327f877fe7e3624e14cf962dc6af0b5d4
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jg3-eW-ErD"/>
-        <segue reference="Bcf-VU-Ugl"/>
-        <segue reference="sjT-Op-06V"/>
-        <segue reference="0hJ-Pp-JHr"/>
         <segue reference="H9m-Kk-IXa"/>
+        <segue reference="0hJ-Pp-JHr"/>
+        <segue reference="h82-Ig-Co5"/>
+        <segue reference="Bcf-VU-Ugl"/>
+        <segue reference="jg3-eW-ErD"/>
     </inferredMetricsTieBreakers>
 </document>

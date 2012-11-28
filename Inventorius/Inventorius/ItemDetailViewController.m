@@ -34,6 +34,7 @@
     [_authorizedIssueLabel setText:self.detailItem.authorizedIssue.stringValue];
     [_NSNLabel setText:self.detailItem.nsn];
     [_unitOfIssueLabel setText:self.detailItem.unitOfIssue.stringValue];
+    [_imageView setImage:[UIImage imageWithContentsOfFile:self.detailItem.strImagePath]];
 
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditButton:)];
     self.navigationItem.rightBarButtonItem = editButton;

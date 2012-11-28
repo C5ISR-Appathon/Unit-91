@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *authorizedIssueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *NSNLabel;
 @property (weak, nonatomic) IBOutlet UILabel *unitOfIssueLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (strong, nonatomic) Item* detailItem;
 
