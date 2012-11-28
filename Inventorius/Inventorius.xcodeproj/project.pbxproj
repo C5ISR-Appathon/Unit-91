@@ -19,8 +19,12 @@
 		524D53E71666518300556439 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 524D53E61666518300556439 /* Default-568h@2x.png */; };
 		524D53EA1666518300556439 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524D53E81666518300556439 /* MainStoryboard.storyboard */; };
 		524D53ED1666518300556439 /* Inventorius.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 524D53EB1666518300556439 /* Inventorius.xcdatamodeld */; };
-		524D53F01666518300556439 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524D53EF1666518300556439 /* MasterViewController.m */; };
-		524D53F31666518300556439 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524D53F21666518300556439 /* DetailViewController.m */; };
+		524D53F01666518300556439 /* InventoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524D53EF1666518300556439 /* InventoryListViewController.m */; };
+		524D53F31666518300556439 /* InventoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524D53F21666518300556439 /* InventoryDetailViewController.m */; };
+		5252ADB0166653580002EDC5 /* InventoryCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADAF166653580002EDC5 /* InventoryCreateViewController.m */; };
+		5252ADB4166654210002EDC5 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADB3166654210002EDC5 /* ItemDetailViewController.m */; };
+		5252ADB71666547E0002EDC5 /* ContainerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADB61666547E0002EDC5 /* ContainerDetailViewController.m */; };
+		5252ADBA166654980002EDC5 /* ItemCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADB9166654980002EDC5 /* ItemCreateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +44,18 @@
 		524D53E61666518300556439 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		524D53E91666518300556439 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		524D53EC1666518300556439 /* Inventorius.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Inventorius.xcdatamodel; sourceTree = "<group>"; };
-		524D53EE1666518300556439 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		524D53EF1666518300556439 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		524D53F11666518300556439 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		524D53F21666518300556439 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		524D53EE1666518300556439 /* InventoryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InventoryListViewController.h; sourceTree = "<group>"; };
+		524D53EF1666518300556439 /* InventoryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InventoryListViewController.m; sourceTree = "<group>"; };
+		524D53F11666518300556439 /* InventoryDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InventoryDetailViewController.h; sourceTree = "<group>"; };
+		524D53F21666518300556439 /* InventoryDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InventoryDetailViewController.m; sourceTree = "<group>"; };
+		5252ADAE166653580002EDC5 /* InventoryCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCreateViewController.h; sourceTree = "<group>"; };
+		5252ADAF166653580002EDC5 /* InventoryCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCreateViewController.m; sourceTree = "<group>"; };
+		5252ADB2166654210002EDC5 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
+		5252ADB3166654210002EDC5 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
+		5252ADB51666547E0002EDC5 /* ContainerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerDetailViewController.h; sourceTree = "<group>"; };
+		5252ADB61666547E0002EDC5 /* ContainerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerDetailViewController.m; sourceTree = "<group>"; };
+		5252ADB8166654980002EDC5 /* ItemCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCreateViewController.h; sourceTree = "<group>"; };
+		5252ADB9166654980002EDC5 /* ItemCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCreateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,12 +107,20 @@
 				524D53DF1666518300556439 /* AppDelegate.h */,
 				524D53E01666518300556439 /* AppDelegate.m */,
 				524D53E81666518300556439 /* MainStoryboard.storyboard */,
-				524D53EE1666518300556439 /* MasterViewController.h */,
-				524D53EF1666518300556439 /* MasterViewController.m */,
-				524D53F11666518300556439 /* DetailViewController.h */,
-				524D53F21666518300556439 /* DetailViewController.m */,
+				524D53EE1666518300556439 /* InventoryListViewController.h */,
+				524D53EF1666518300556439 /* InventoryListViewController.m */,
+				524D53F11666518300556439 /* InventoryDetailViewController.h */,
+				524D53F21666518300556439 /* InventoryDetailViewController.m */,
 				524D53EB1666518300556439 /* Inventorius.xcdatamodeld */,
 				524D53D71666518300556439 /* Supporting Files */,
+				5252ADAE166653580002EDC5 /* InventoryCreateViewController.h */,
+				5252ADAF166653580002EDC5 /* InventoryCreateViewController.m */,
+				5252ADB2166654210002EDC5 /* ItemDetailViewController.h */,
+				5252ADB3166654210002EDC5 /* ItemDetailViewController.m */,
+				5252ADB51666547E0002EDC5 /* ContainerDetailViewController.h */,
+				5252ADB61666547E0002EDC5 /* ContainerDetailViewController.m */,
+				5252ADB8166654980002EDC5 /* ItemCreateViewController.h */,
+				5252ADB9166654980002EDC5 /* ItemCreateViewController.m */,
 			);
 			path = Inventorius;
 			sourceTree = "<group>";
@@ -188,8 +208,12 @@
 				524D53DD1666518300556439 /* main.m in Sources */,
 				524D53E11666518300556439 /* AppDelegate.m in Sources */,
 				524D53ED1666518300556439 /* Inventorius.xcdatamodeld in Sources */,
-				524D53F01666518300556439 /* MasterViewController.m in Sources */,
-				524D53F31666518300556439 /* DetailViewController.m in Sources */,
+				524D53F01666518300556439 /* InventoryListViewController.m in Sources */,
+				524D53F31666518300556439 /* InventoryDetailViewController.m in Sources */,
+				5252ADB0166653580002EDC5 /* InventoryCreateViewController.m in Sources */,
+				5252ADB4166654210002EDC5 /* ItemDetailViewController.m in Sources */,
+				5252ADB71666547E0002EDC5 /* ContainerDetailViewController.m in Sources */,
+				5252ADBA166654980002EDC5 /* ItemCreateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +330,7 @@
 				524D53F81666518300556439 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
