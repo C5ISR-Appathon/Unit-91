@@ -27,6 +27,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [_strNameLabel setText:self.detailItem.strName];
+    [_quantityLabel setText:self.detailItem.quantity.stringValue];
+    [_descriptionLabel setText:self.detailItem.strDescription];
+    [_authorizedIssueLabel setText:self.detailItem.authorizedIssue.stringValue];
+    [_NSNLabel setText:self.detailItem.nsn];
+    [_unitOfIssueLabel setText:self.detailItem.unitOfIssue.stringValue];
 }
 
 - (void)didReceiveMemoryWarning
