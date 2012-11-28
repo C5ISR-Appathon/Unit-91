@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07628361166653C300FAFB16 /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628360166653C300FAFB16 /* Inventory.m */; };
-		07628364166653C300FAFB16 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628363166653C300FAFB16 /* Item.m */; };
-		07628367166653C300FAFB16 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628366166653C300FAFB16 /* Asset.m */; };
-		0762836A166653C300FAFB16 /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628369166653C300FAFB16 /* Container.m */; };
 		524D53CF1666518300556439 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53CE1666518300556439 /* UIKit.framework */; };
 		524D53D11666518300556439 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53D01666518300556439 /* Foundation.framework */; };
 		524D53D31666518300556439 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53D21666518300556439 /* CoreGraphics.framework */; };
@@ -29,6 +25,7 @@
 		5252ADB4166654210002EDC5 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADB3166654210002EDC5 /* ItemDetailViewController.m */; };
 		5252ADB71666547E0002EDC5 /* ContainerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADB61666547E0002EDC5 /* ContainerDetailViewController.m */; };
 		5252ADBA166654980002EDC5 /* ItemCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADB9166654980002EDC5 /* ItemCreateViewController.m */; };
+		5252ADC3166655990002EDC5 /* AssetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADC2166655990002EDC5 /* AssetCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +65,8 @@
 		5252ADB61666547E0002EDC5 /* ContainerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerDetailViewController.m; sourceTree = "<group>"; };
 		5252ADB8166654980002EDC5 /* ItemCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCreateViewController.h; sourceTree = "<group>"; };
 		5252ADB9166654980002EDC5 /* ItemCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCreateViewController.m; sourceTree = "<group>"; };
+		5252ADC1166655990002EDC5 /* AssetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetCollectionViewCell.h; sourceTree = "<group>"; };
+		5252ADC2166655990002EDC5 /* AssetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +130,7 @@
 		524D53D61666518300556439 /* Inventorius */ = {
 			isa = PBXGroup;
 			children = (
+				5252ADBF1666553D0002EDC5 /* UIComponents */,
 				076283511666529700FAFB16 /* Model */,
 				524D53DF1666518300556439 /* AppDelegate.h */,
 				524D53E01666518300556439 /* AppDelegate.m */,
@@ -165,6 +165,15 @@
 				524D53E61666518300556439 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5252ADBF1666553D0002EDC5 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				5252ADC1166655990002EDC5 /* AssetCollectionViewCell.h */,
+				5252ADC2166655990002EDC5 /* AssetCollectionViewCell.m */,
+			);
+			name = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +251,7 @@
 				5252ADB4166654210002EDC5 /* ItemDetailViewController.m in Sources */,
 				5252ADB71666547E0002EDC5 /* ContainerDetailViewController.m in Sources */,
 				5252ADBA166654980002EDC5 /* ItemCreateViewController.m in Sources */,
+				5252ADC3166655990002EDC5 /* AssetCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
