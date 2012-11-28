@@ -8,9 +8,13 @@
 
 #import "InventoryDetailViewController.h"
 #import "AssetCollectionViewCell.h"
-#import "Asset.h"
 
+#import "Item.h"
+#import "Container.h"
 #import "ContainerDetailViewController.h"
+#import "ItemDetailViewController.h"
+#import "AssetCreateViewController.h"
+
 
 @interface InventoryDetailViewController ()
 - (void)configureView;
@@ -56,17 +60,22 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    if ([[segue identifier] isEqualToString:@"SegueToInventoryDetail"])
-    {        
-        // pass the managedObjectContext
-        ((InventoryDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
-    }
-    
     if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToContainerDetail"])
     {
         // pass the managedObjectContext
         ((ContainerDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToItemDetail"])
+    {
+        // pass the managedObjectContext
+        ((ItemDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToAssetCreate"])
+    {
+        // pass the managedObjectContext
+        ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
 }
 
@@ -79,7 +88,7 @@
 - (void)onAddButton:(id)sender
 {
     // do segue to InventoryCreate
-    [self performSegueWithIdentifier:@"SegueToAssetCreate" sender:self];
+    [self performSegueWithIdentifier:@"SegueInventoryDetailToAssetCreate" sender:self];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -104,6 +113,19 @@
         cell.imageView.image = [UIImage imageWithContentsOfFile:asset.strImagePathThumb];
     }
     return cell;
+}
+
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:indexPath.row];
+    if([asset isKindOfClass:[Item class]])
+    {
+            [self performSegueWithIdentifier:@"SegueInventoryDetailToItemDetail" sender:self];
+    }
+    else if ([asset isKindOfClass:[Container class]])
+    {
+            [self performSegueWithIdentifier:@"SegueInventoryDetailToContainerDetail" sender:self];
+    }
 }
 
 @end

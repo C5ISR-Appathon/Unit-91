@@ -24,9 +24,13 @@
 		52E1DED516665A2800373F32 /* InventoryCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DECB16665A2700373F32 /* InventoryCreateViewController.m */; };
 		52E1DED616665A2800373F32 /* InventoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DECD16665A2700373F32 /* InventoryDetailViewController.m */; };
 		52E1DED716665A2800373F32 /* InventoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DECF16665A2800373F32 /* InventoryListViewController.m */; };
-		52E1DED816665A2800373F32 /* ItemCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DED116665A2800373F32 /* ItemCreateViewController.m */; };
+		52E1DED816665A2800373F32 /* AssetCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DED116665A2800373F32 /* AssetCreateViewController.m */; };
 		52E1DED916665A2800373F32 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DED316665A2800373F32 /* ItemDetailViewController.m */; };
 		52E1DEE01666734800373F32 /* DefaultContainerImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E1DEDF1666734800373F32 /* DefaultContainerImage.png */; };
+		52E1DEE2166688F100373F32 /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628360166653C300FAFB16 /* Inventory.m */; };
+		52E1DEE3166688F500373F32 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 076283701666555C00FAFB16 /* Asset.m */; };
+		52E1DEE4166688F800373F32 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628363166653C300FAFB16 /* Item.m */; };
+		52E1DEE51666890300373F32 /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628369166653C300FAFB16 /* Container.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,8 +68,8 @@
 		52E1DECD16665A2700373F32 /* InventoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryDetailViewController.m; sourceTree = "<group>"; };
 		52E1DECE16665A2700373F32 /* InventoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryListViewController.h; sourceTree = "<group>"; };
 		52E1DECF16665A2800373F32 /* InventoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryListViewController.m; sourceTree = "<group>"; };
-		52E1DED016665A2800373F32 /* ItemCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCreateViewController.h; sourceTree = "<group>"; };
-		52E1DED116665A2800373F32 /* ItemCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCreateViewController.m; sourceTree = "<group>"; };
+		52E1DED016665A2800373F32 /* AssetCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetCreateViewController.h; sourceTree = "<group>"; };
+		52E1DED116665A2800373F32 /* AssetCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetCreateViewController.m; sourceTree = "<group>"; };
 		52E1DED216665A2800373F32 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		52E1DED316665A2800373F32 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 		52E1DEDF1666734800373F32 /* DefaultContainerImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultContainerImage.png; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 		079134DB16665B4B00B247A0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				52E1DED016665A2800373F32 /* AssetCreateViewController.h */,
+				52E1DED116665A2800373F32 /* AssetCreateViewController.m */,
 				52E1DEC816665A2700373F32 /* ContainerDetailViewController.h */,
 				52E1DEC916665A2700373F32 /* ContainerDetailViewController.m */,
 				52E1DECA16665A2700373F32 /* InventoryCreateViewController.h */,
@@ -112,8 +118,6 @@
 				52E1DECD16665A2700373F32 /* InventoryDetailViewController.m */,
 				52E1DECE16665A2700373F32 /* InventoryListViewController.h */,
 				52E1DECF16665A2800373F32 /* InventoryListViewController.m */,
-				52E1DED016665A2800373F32 /* ItemCreateViewController.h */,
-				52E1DED116665A2800373F32 /* ItemCreateViewController.m */,
 				52E1DED216665A2800373F32 /* ItemDetailViewController.h */,
 				52E1DED316665A2800373F32 /* ItemDetailViewController.m */,
 			);
@@ -262,8 +266,12 @@
 				52E1DED516665A2800373F32 /* InventoryCreateViewController.m in Sources */,
 				52E1DED616665A2800373F32 /* InventoryDetailViewController.m in Sources */,
 				52E1DED716665A2800373F32 /* InventoryListViewController.m in Sources */,
-				52E1DED816665A2800373F32 /* ItemCreateViewController.m in Sources */,
+				52E1DED816665A2800373F32 /* AssetCreateViewController.m in Sources */,
 				52E1DED916665A2800373F32 /* ItemDetailViewController.m in Sources */,
+				52E1DEE3166688F500373F32 /* Asset.m in Sources */,
+				52E1DEE4166688F800373F32 /* Item.m in Sources */,
+				52E1DEE51666890300373F32 /* Container.m in Sources */,
+				52E1DEE2166688F100373F32 /* Inventory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
