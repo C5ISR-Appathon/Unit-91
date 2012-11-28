@@ -11,10 +11,9 @@
 
 #import "Item.h"
 #import "Container.h"
-
-
 #import "ContainerDetailViewController.h"
 #import "ItemDetailViewController.h"
+
 
 @interface InventoryDetailViewController ()
 - (void)configureView;
