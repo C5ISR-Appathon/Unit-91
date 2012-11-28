@@ -7,6 +7,7 @@
 //
 
 #import "ItemDetailViewController.h"
+#import "AssetCreateViewController.h"
 
 @interface ItemDetailViewController ()
 
@@ -33,6 +34,9 @@
     [_authorizedIssueLabel setText:self.detailItem.authorizedIssue.stringValue];
     [_NSNLabel setText:self.detailItem.nsn];
     [_unitOfIssueLabel setText:self.detailItem.unitOfIssue.stringValue];
+
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditButton:)];
+    self.navigationItem.rightBarButtonItem = editButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,5 +44,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"SegueItemDetailToAssetCreate"])
+    {
+        AssetCreateViewController* controller = ((AssetCreateViewController*)segue.destinationViewController);
+        controller.createdAsset = self.detailItem;
+    }
+
+}
+
+- (void)onEditButton:(id)sender
+{
+    // do segue to InventoryCreate
+    [self performSegueWithIdentifier:@"SegueItemDetailToAssetCreate" sender:self];
+}
+
 
 @end
