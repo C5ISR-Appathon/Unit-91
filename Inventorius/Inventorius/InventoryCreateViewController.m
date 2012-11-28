@@ -128,10 +128,29 @@
     [[self parentViewController] dismissViewControllerAnimated:YES completion:^{}];
     Picker = nil;
     
-    [[self parentViewController] dismissViewControllerAnimated:YES completion:^{}];
+    
     
     selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
     
     [m_cameraButton setBackgroundImage:selectedImage forState:UIControlStateNormal];
+    
+    NSMutableString  *jpgPath = [[NSMutableString alloc] init];
+    
+    [jpgPath appendString:@"/inventorius/"];
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    
+    NSDate* currentTime = [NSDate date];
+    
+    NSString* fileStamp = [format stringFromDate:currentTime];
+    
+    [jpgPath appendString:fileStamp];
+    [jpgPath appendString:@".jpg"];
+    
+    NSData* jpg = UIImageJPEGRepresentation(selectedImage, 1.0);
+    
+    [jpg writeToFile:jpgPath atomically:NO];
+    
+    self.createdInventory.strImagePath = jpgPath;
 }
 @end
