@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12B2100" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -44,41 +44,57 @@
                                     <action selector="cameraButtonPressed:" destination="qlZ-VF-D9p" eventType="touchUpInside" id="TF2-KJ-A9V"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EJQ-Nv-SJb">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="nameEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="t3S-Mc-WpB"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Owner" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="diI-T2-jSw">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="ownerEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="Xl1-oe-B1E"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yZn-np-sdU">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="descriptionEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="5Qk-sv-roo"/>
-                                </connections>
-                            </textField>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW4-VO-1R9">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yZn-np-sdU">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="descriptionEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="5Qk-sv-roo"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Owner" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="diI-T2-jSw">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="ownerEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="Xl1-oe-B1E"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EJQ-Nv-SJb">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="Nbr-aT-biR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="nameEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="t3S-Mc-WpB"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="yZn-np-sdU" secondAttribute="bottom" constant="217" id="1Xh-FJ-QHa"/>
+                                    <constraint firstItem="diI-T2-jSw" firstAttribute="trailing" secondItem="EJQ-Nv-SJb" secondAttribute="trailing" type="default" id="CFc-GB-x4r"/>
+                                    <constraint firstAttribute="trailing" secondItem="EJQ-Nv-SJb" secondAttribute="trailing" constant="28" id="Ggn-DD-cQg"/>
+                                    <constraint firstItem="yZn-np-sdU" firstAttribute="leading" secondItem="ZW4-VO-1R9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="HOW-PK-gWi"/>
+                                    <constraint firstItem="yZn-np-sdU" firstAttribute="trailing" secondItem="diI-T2-jSw" secondAttribute="trailing" type="default" id="K9R-t1-npJ"/>
+                                    <constraint firstItem="EJQ-Nv-SJb" firstAttribute="top" secondItem="ZW4-VO-1R9" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Ypp-Bu-jY8"/>
+                                    <constraint firstItem="yZn-np-sdU" firstAttribute="baseline" secondItem="diI-T2-jSw" secondAttribute="baseline" type="default" id="ieU-54-ABJ"/>
+                                    <constraint firstItem="yZn-np-sdU" firstAttribute="top" secondItem="diI-T2-jSw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="jao-Au-cRz"/>
+                                    <constraint firstItem="yZn-np-sdU" firstAttribute="baseline" secondItem="EJQ-Nv-SJb" secondAttribute="baseline" type="default" id="jtU-zj-qfX"/>
+                                    <constraint firstItem="EJQ-Nv-SJb" firstAttribute="leading" secondItem="ZW4-VO-1R9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="n6h-Lw-K8D"/>
+                                    <constraint firstItem="diI-T2-jSw" firstAttribute="leading" secondItem="ZW4-VO-1R9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rfD-lJ-neU"/>
+                                    <constraint firstItem="diI-T2-jSw" firstAttribute="top" secondItem="EJQ-Nv-SJb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="u5n-by-dKb"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="diI-T2-jSw" firstAttribute="leading" secondItem="ybJ-SK-aus" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="7om-Jt-m82"/>
-                            <constraint firstItem="yZn-np-sdU" firstAttribute="leading" secondItem="ybJ-SK-aus" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Bwo-wk-NaT"/>
+                            <constraint firstItem="ZW4-VO-1R9" firstAttribute="leading" secondItem="ybJ-SK-aus" secondAttribute="leading" type="default" id="0wr-1K-RYC"/>
                             <constraint firstItem="tEn-p1-RfC" firstAttribute="leading" secondItem="ybJ-SK-aus" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ByO-dq-5ID"/>
-                            <constraint firstAttribute="trailing" secondItem="diI-T2-jSw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Eeg-JG-0kS"/>
+                            <constraint firstAttribute="trailing" secondItem="ZW4-VO-1R9" secondAttribute="trailing" constant="-8" id="Dxn-bP-u80"/>
                             <constraint firstItem="tEn-p1-RfC" firstAttribute="top" secondItem="ybJ-SK-aus" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Ep7-lF-Okl"/>
-                            <constraint firstItem="diI-T2-jSw" firstAttribute="top" secondItem="ybJ-SK-aus" secondAttribute="top" constant="195" id="S5F-78-CpX"/>
-                            <constraint firstAttribute="trailing" secondItem="yZn-np-sdU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Tw1-nH-PTu"/>
-                            <constraint firstItem="yZn-np-sdU" firstAttribute="top" secondItem="ybJ-SK-aus" secondAttribute="top" constant="242" id="gcm-Oa-W4b"/>
-                            <constraint firstAttribute="trailing" secondItem="EJQ-Nv-SJb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nj8-1K-2Cu"/>
-                            <constraint firstItem="EJQ-Nv-SJb" firstAttribute="leading" secondItem="ybJ-SK-aus" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="xSB-h0-G3j"/>
-                            <constraint firstItem="EJQ-Nv-SJb" firstAttribute="top" secondItem="ybJ-SK-aus" secondAttribute="top" constant="145" id="yaV-u0-U7N"/>
+                            <constraint firstItem="ZW4-VO-1R9" firstAttribute="top" secondItem="tEn-p1-RfC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="RIw-xr-ZYR"/>
+                            <constraint firstItem="ZW4-VO-1R9" firstAttribute="bottom" secondItem="ybJ-SK-aus" secondAttribute="bottom" type="default" id="zph-mR-JFs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Inventory" id="sZ7-gi-Bmc"/>
@@ -171,7 +187,7 @@
                                     <action selector="cameraButtonPressed:" destination="qTC-eO-wF9" eventType="touchUpInside" id="uNy-RN-ntJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Belongs to: Container/Inventory" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="163" translatesAutoresizingMaskIntoConstraints="NO" id="E7H-u4-kiE">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Container Mode" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="163" translatesAutoresizingMaskIntoConstraints="NO" id="E7H-u4-kiE">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="8Z3-pZ-sNn"/>
                                     <constraint firstAttribute="width" constant="163" id="8yy-fk-ze8"/>
@@ -213,20 +229,20 @@
                             <constraint firstItem="E7H-u4-kiE" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="20" symbolic="YES" type="default" id="6rI-eB-DPw"/>
                             <constraint firstItem="gTH-rg-VCu" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GDc-dC-0Yw"/>
                             <constraint firstItem="E7H-u4-kiE" firstAttribute="leading" secondItem="gTH-rg-VCu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="HOW-xh-MuI"/>
-                            <constraint firstAttribute="bottom" secondItem="opJ-Ck-Wb8" secondAttribute="bottom" constant="178" id="I6d-G2-2BQ"/>
                             <constraint firstItem="gTH-rg-VCu" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="20" symbolic="YES" type="default" id="L5n-W3-MqZ"/>
                             <constraint firstItem="fjt-B2-XIW" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LRN-UQ-HNt"/>
                             <constraint firstItem="opJ-Ck-Wb8" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="S2e-P0-Ffm"/>
                             <constraint firstAttribute="trailing" secondItem="s56-yM-Jba" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="S8L-vS-hsC"/>
                             <constraint firstItem="s56-yM-Jba" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="V2H-mB-lkh"/>
-                            <constraint firstAttribute="bottom" secondItem="5v0-rO-GYV" secondAttribute="bottom" constant="133" id="X98-DN-I1V"/>
                             <constraint firstItem="5v0-rO-GYV" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="XbZ-iH-vqh"/>
-                            <constraint firstItem="wZG-F0-v7E" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="244" id="e3e-aE-QtS"/>
-                            <constraint firstAttribute="bottom" secondItem="s56-yM-Jba" secondAttribute="bottom" constant="226" id="g8Z-bj-dF7"/>
+                            <constraint firstItem="opJ-Ck-Wb8" firstAttribute="top" secondItem="s56-yM-Jba" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Xnz-ZQ-o6v"/>
+                            <constraint firstItem="s56-yM-Jba" firstAttribute="top" secondItem="wZG-F0-v7E" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dyF-Cv-Tlx"/>
+                            <constraint firstItem="Ohc-VV-B0v" firstAttribute="top" secondItem="fjt-B2-XIW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gds-EZ-9w6"/>
                             <constraint firstAttribute="trailing" secondItem="wZG-F0-v7E" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kXv-62-bNc"/>
+                            <constraint firstItem="5v0-rO-GYV" firstAttribute="top" secondItem="opJ-Ck-Wb8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nXV-JE-Ifw"/>
                             <constraint firstAttribute="trailing" secondItem="fjt-B2-XIW" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="p2q-7x-Djv"/>
                             <constraint firstItem="wZG-F0-v7E" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="prM-aV-gRI"/>
-                            <constraint firstItem="Ohc-VV-B0v" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="193" id="spV-yB-pvA"/>
+                            <constraint firstItem="wZG-F0-v7E" firstAttribute="top" secondItem="Ohc-VV-B0v" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rRj-IT-tub"/>
                             <constraint firstAttribute="trailing" secondItem="Ohc-VV-B0v" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="t7L-Hj-c50"/>
                             <constraint firstAttribute="trailing" secondItem="opJ-Ck-Wb8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="uvy-8O-7CC"/>
                             <constraint firstItem="fjt-B2-XIW" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="141" id="xt4-Ob-7fW"/>
@@ -238,12 +254,15 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" id="9pY-gd-9Ad"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="m_authorizedIssueNumberTextField" destination="s56-yM-Jba" id="cMD-Jg-rSQ"/>
                         <outlet property="m_cameraButton" destination="gTH-rg-VCu" id="ln7-hv-I3K"/>
                         <outlet property="m_containerInventoryLabel" destination="E7H-u4-kiE" id="Doa-U1-Zcx"/>
                         <outlet property="m_containerSwitch" destination="iwy-Co-ffP" id="RMm-DU-olK"/>
                         <outlet property="m_descriptionTextField" destination="wZG-F0-v7E" id="HXO-Gm-DLj"/>
                         <outlet property="m_nameTextField" destination="fjt-B2-XIW" id="Cdr-3L-tNG"/>
+                        <outlet property="m_nsnTextField" destination="opJ-Ck-Wb8" id="pLC-Cl-AMp"/>
                         <outlet property="m_quantityTextField" destination="Ohc-VV-B0v" id="RLf-Q5-XaS"/>
+                        <outlet property="m_unitOfIssueTextField" destination="5v0-rO-GYV" id="KFi-ym-fkC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6i-fU-5Ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -554,12 +573,16 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AssetCreateViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cameraButtonPressed:"/>
+                <relationship kind="action" name="onDoneButton:"/>
+                <relationship kind="outlet" name="m_authorizedIssueNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="m_cameraButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="m_containerInventoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="m_containerSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="m_descriptionTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="m_nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="m_nsnTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="m_quantityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="m_unitOfIssueTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="ContainerDetailViewController" superclassName="UICollectionViewController">
