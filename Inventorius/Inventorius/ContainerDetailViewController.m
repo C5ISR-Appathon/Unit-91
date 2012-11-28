@@ -7,6 +7,7 @@
 //
 
 #import "ContainerDetailViewController.h"
+#import "ItemDetailViewController.h"
 #import "AssetCollectionViewCell.h"
 #import "Item.h"
 #import "Container.h"
@@ -38,10 +39,38 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
     if ([[segue identifier] isEqualToString:@"SegueContainerDetailToAssetCreate"])
     {
         ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
-    }    
+    }
+    else if ([[segue identifier] isEqualToString:@"SegueContainerDetailToItemDetail"])
+    {
+        AssetCollectionViewCell *cell = sender;
+        NSIndexPath *cellIndex = [self.collectionView indexPathForCell:cell];
+        Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:cellIndex.row];
+        Item* item = (Item*)asset;
+        ItemDetailViewController* controller = ((ItemDetailViewController*)segue.destinationViewController);
+        [controller setDetailItem:item];
+        controller.managedObjectContext = self.managedObjectContext;
+    }
+    else if ([[segue identifier] isEqualToString:@"SegueContainerDetailToContainerDetail"])
+    {
+        AssetCollectionViewCell *cell = sender;
+        NSIndexPath *cellIndex = [self.collectionView indexPathForCell:cell];
+        Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:cellIndex.row];
+
+        if([asset isKindOfClass:[Item class]])
+        {
+            [self performSegueWithIdentifier:@"SegueContainerDetailToItemDetail" sender:self];
+        }
+        else
+        {
+            Container* container = (Container*)asset;
+            [segue.destinationViewController setDetailItem:container];
+            ((ContainerDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +82,7 @@
 - (void)onAddButton:(id)sender
 {
     // do segue to InventoryCreate
-    [self performSegueWithIdentifier:@"SegueToAssetCreate" sender:self];
+    [self performSegueWithIdentifier:@"SegueContainerDetailToAssetCreate" sender:self];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -83,15 +112,16 @@
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:indexPath.row];
-    if([asset isKindOfClass:[Item class]])
-    {
-        [self performSegueWithIdentifier:@"SegueContainerDetailToItemDetail" sender:self];
-    }
-    else if ([asset isKindOfClass:[Container class]])
-    {
-        [self performSegueWithIdentifier:@"SegueContainerDetailToContainerDetail" sender:self];
-    }
+    //This code exists in preparingSegue now
+//    Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:indexPath.row];
+//    if([asset isKindOfClass:[Item class]])
+//    {
+//        [self performSegueWithIdentifier:@"SegueContainerDetailToItemDetail" sender:self];
+//    }
+//    else if ([asset isKindOfClass:[Container class]])
+//    {
+//        [self performSegueWithIdentifier:@"SegueContainerDetailToContainerDetail" sender:self];
+//    }
 }
 
 @end
