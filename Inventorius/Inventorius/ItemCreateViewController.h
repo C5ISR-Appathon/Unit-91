@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ItemCreateViewController : UIViewController
+@interface ItemCreateViewController : UIViewController <UIImagePickerControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *m_cameraButton;
 @property (strong, nonatomic) IBOutlet UILabel *m_containerInventoryLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *m_containerSwitch;
