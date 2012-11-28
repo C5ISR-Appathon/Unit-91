@@ -12,6 +12,7 @@
 
 #import "ContainerDetailViewController.h"
 #import "ItemDetailViewController.h"
+#import "ItemCreateViewController.h"
 
 @interface InventoryDetailViewController ()
 - (void)configureView;
@@ -68,6 +69,12 @@
         // pass the managedObjectContext
         ((ItemDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
+    
+    if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToAssetCreate"])
+    {
+        // pass the managedObjectContext
+        ((ItemCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,7 +86,7 @@
 - (void)onAddButton:(id)sender
 {
     // do segue to InventoryCreate
-    [self performSegueWithIdentifier:@"SegueToAssetCreate" sender:self];
+    [self performSegueWithIdentifier:@"SegueInventoryDetailToAssetCreate" sender:self];
 }
 
 #pragma mark - UICollectionViewDataSource

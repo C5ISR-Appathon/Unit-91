@@ -19,5 +19,8 @@
 @property (nonatomic, retain) UIImageView* selectedImage;
 - (IBAction)cameraButtonPressed:(id)sender;
 
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 
 @end
