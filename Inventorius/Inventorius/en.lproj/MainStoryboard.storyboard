@@ -34,10 +34,10 @@
             </objects>
             <point key="canvasLocation" x="473" y="-762"/>
         </scene>
-        <!--Inventory List View Controller - Master-->
+        <!--Inventory List View Controller - Inventories-->
         <scene sceneID="18">
             <objects>
-                <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="InventoryListViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="" title="Inventories" id="12" customClass="InventoryListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,7 +72,7 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="36"/>
+                    <navigationItem key="navigationItem" title="Inventories" id="36"/>
                     <connections>
                         <segue destination="qlZ-VF-D9p" kind="push" identifier="SegueToInventoryCreate" id="tRO-qv-Pn8"/>
                     </connections>
@@ -91,6 +91,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTH-rg-VCu">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="89" id="45h-O9-vt0"/>
                                     <constraint firstAttribute="width" constant="91" id="zkW-Qo-l3V"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -137,7 +138,6 @@
                             <constraint firstItem="gTH-rg-VCu" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="20" symbolic="YES" type="default" id="L5n-W3-MqZ"/>
                             <constraint firstItem="fjt-B2-XIW" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LRN-UQ-HNt"/>
                             <constraint firstItem="wZG-F0-v7E" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="244" id="e3e-aE-QtS"/>
-                            <constraint firstItem="iwy-Co-ffP" firstAttribute="bottom" secondItem="gTH-rg-VCu" secondAttribute="bottom" type="default" id="e79-YJ-erQ"/>
                             <constraint firstAttribute="trailing" secondItem="wZG-F0-v7E" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kXv-62-bNc"/>
                             <constraint firstAttribute="trailing" secondItem="fjt-B2-XIW" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="p2q-7x-Djv"/>
                             <constraint firstItem="wZG-F0-v7E" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="prM-aV-gRI"/>
