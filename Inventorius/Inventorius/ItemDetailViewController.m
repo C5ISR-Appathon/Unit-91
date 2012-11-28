@@ -33,6 +33,9 @@
     [_authorizedIssueLabel setText:self.detailItem.authorizedIssue.stringValue];
     [_NSNLabel setText:self.detailItem.nsn];
     [_unitOfIssueLabel setText:self.detailItem.unitOfIssue.stringValue];
+
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditButton:)];
+    self.navigationItem.rightBarButtonItem = editButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,5 +43,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)onEditButton:(id)sender
+{
+    // do segue to InventoryCreate
+    [self performSegueWithIdentifier:@"SegueItemDetailToAssetCreate" sender:self];
+}
+
 
 @end
