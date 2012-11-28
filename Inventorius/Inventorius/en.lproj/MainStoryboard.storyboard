@@ -46,15 +46,24 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EJQ-Nv-SJb">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="nameEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="t3S-Mc-WpB"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Owner" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="diI-T2-jSw">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="ownerEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="Xl1-oe-B1E"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yZn-np-sdU">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="descriptionEntered:" destination="qlZ-VF-D9p" eventType="editingDidEnd" id="5Qk-sv-roo"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -77,13 +86,13 @@
                         <outlet property="m_cameraButton" destination="tEn-p1-RfC" id="U2o-DM-NGa"/>
                         <outlet property="m_descriptionTextField" destination="yZn-np-sdU" id="cyr-Kv-Oh9"/>
                         <outlet property="m_nameTextField" destination="EJQ-Nv-SJb" id="JrR-pW-hki"/>
-                        <outlet property="m_quantityTextField" destination="diI-T2-jSw" id="Okm-Vn-10m"/>
+                        <outlet property="m_ownerTextField" destination="diI-T2-jSw" id="mr1-UW-ZjK"/>
                         <segue destination="12" kind="push" identifier="SegueAfterCreateInventory" id="jg3-eW-ErD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPL-VB-OVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="991" y="-774"/>
+            <point key="canvasLocation" x="961" y="-302"/>
         </scene>
         <!--Inventory List View Controller - Inventories-->
         <scene sceneID="18">
@@ -173,27 +182,48 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ohc-VV-B0v">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wZG-F0-v7E">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Authorized Issue No." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s56-yM-Jba">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NSN" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="opJ-Ck-Wb8">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unit Of Issue" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5v0-rO-GYV">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iwy-Co-ffP" firstAttribute="centerX" secondItem="E7H-u4-kiE" secondAttribute="centerX" type="default" id="1Le-Z3-S8g"/>
+                            <constraint firstAttribute="trailing" secondItem="5v0-rO-GYV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1Ne-n4-heQ"/>
                             <constraint firstItem="E7H-u4-kiE" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="20" symbolic="YES" type="default" id="6rI-eB-DPw"/>
                             <constraint firstItem="gTH-rg-VCu" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GDc-dC-0Yw"/>
                             <constraint firstItem="E7H-u4-kiE" firstAttribute="leading" secondItem="gTH-rg-VCu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="HOW-xh-MuI"/>
+                            <constraint firstAttribute="bottom" secondItem="opJ-Ck-Wb8" secondAttribute="bottom" constant="178" id="I6d-G2-2BQ"/>
                             <constraint firstItem="gTH-rg-VCu" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="20" symbolic="YES" type="default" id="L5n-W3-MqZ"/>
                             <constraint firstItem="fjt-B2-XIW" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LRN-UQ-HNt"/>
+                            <constraint firstItem="opJ-Ck-Wb8" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="S2e-P0-Ffm"/>
+                            <constraint firstAttribute="trailing" secondItem="s56-yM-Jba" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="S8L-vS-hsC"/>
+                            <constraint firstItem="s56-yM-Jba" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="V2H-mB-lkh"/>
+                            <constraint firstAttribute="bottom" secondItem="5v0-rO-GYV" secondAttribute="bottom" constant="133" id="X98-DN-I1V"/>
+                            <constraint firstItem="5v0-rO-GYV" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="XbZ-iH-vqh"/>
                             <constraint firstItem="wZG-F0-v7E" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="244" id="e3e-aE-QtS"/>
+                            <constraint firstAttribute="bottom" secondItem="s56-yM-Jba" secondAttribute="bottom" constant="226" id="g8Z-bj-dF7"/>
                             <constraint firstAttribute="trailing" secondItem="wZG-F0-v7E" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kXv-62-bNc"/>
                             <constraint firstAttribute="trailing" secondItem="fjt-B2-XIW" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="p2q-7x-Djv"/>
                             <constraint firstItem="wZG-F0-v7E" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="prM-aV-gRI"/>
                             <constraint firstItem="Ohc-VV-B0v" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="193" id="spV-yB-pvA"/>
                             <constraint firstAttribute="trailing" secondItem="Ohc-VV-B0v" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="t7L-Hj-c50"/>
+                            <constraint firstAttribute="trailing" secondItem="opJ-Ck-Wb8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="uvy-8O-7CC"/>
                             <constraint firstItem="fjt-B2-XIW" firstAttribute="top" secondItem="bYu-lf-Y5K" secondAttribute="top" constant="141" id="xt4-Ob-7fW"/>
                             <constraint firstItem="Ohc-VV-B0v" firstAttribute="leading" secondItem="bYu-lf-Y5K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="zbl-Gx-cE8"/>
                             <constraint firstItem="iwy-Co-ffP" firstAttribute="top" secondItem="E7H-u4-kiE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zin-E4-3RM"/>
@@ -213,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6i-fU-5Ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="938"/>
+            <point key="canvasLocation" x="1757" y="1186"/>
         </scene>
         <!--Inventory Detail View Controller-->
         <scene sceneID="U0o-iD-aaY">
@@ -273,7 +303,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Col-qv-cwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="176"/>
+            <point key="canvasLocation" x="961" y="486"/>
         </scene>
         <!--Container Detail View Controller-->
         <scene sceneID="3pN-sf-2C3">
@@ -331,7 +361,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iac-7y-QMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1749" y="-500"/>
+            <point key="canvasLocation" x="1757" y="-222"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="emE-xS-0lo">
@@ -346,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWF-in-psn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="211"/>
+            <point key="canvasLocation" x="1757" y="486"/>
         </scene>
     </scenes>
     <classes>
@@ -364,10 +394,13 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InventoryCreateViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cameraButtonPressed:"/>
+                <relationship kind="action" name="descriptionEntered:"/>
+                <relationship kind="action" name="nameEntered:"/>
+                <relationship kind="action" name="ownerEntered:"/>
                 <relationship kind="outlet" name="m_cameraButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="m_descriptionTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="m_nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="m_quantityTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="m_ownerTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="InventoryDetailViewController" superclassName="UICollectionViewController">

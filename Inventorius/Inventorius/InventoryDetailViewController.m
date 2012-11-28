@@ -13,6 +13,9 @@
 #import "Container.h"
 
 
+#import "ContainerDetailViewController.h"
+#import "ItemDetailViewController.h"
+
 @interface InventoryDetailViewController ()
 - (void)configureView;
 @end
@@ -57,11 +60,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    if ([[segue identifier] isEqualToString:@"SegueToInventoryDetail"])
-    {        
+    if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToContainerDetail"])
+    {
         // pass the managedObjectContext
-        ((InventoryDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        ((ContainerDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"SegueInventoryDetailToItemDetail"])
+    {
+        // pass the managedObjectContext
+        ((ItemDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
 }
 
