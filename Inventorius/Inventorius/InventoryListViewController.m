@@ -97,8 +97,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InventoryListCell" forIndexPath:indexPath];
+    
+    Inventory * inventory = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"1: %@", inventory.strName];
+    
+    NSLog(@"Filename: %@", inventory.strImagePath);
+    
+    cell.imageView.image = [UIImage imageWithContentsOfFile:inventory.strImagePath];
+    
+    //[self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
