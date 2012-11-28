@@ -27,6 +27,16 @@
 
 - (void)onDoneButton:(id) sender
 {
+    self.createdInventory = [NSEntityDescription insertNewObjectForEntityForName:@"Inventory" inManagedObjectContext:self.managedObjectContext];
+        
+    self.createdInventory.strName = @"New Inventory";
+    self.createdInventory.owner = @"The Owner";
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Couldn't save: %@", [error localizedDescription]);
+    }
+    
     [self performSegueWithIdentifier:@"SegueAfterCreateInventory" sender:self];
     
 }
@@ -54,6 +64,8 @@
     {        
         ((InventoryListViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
+    
+    
 
     
 }

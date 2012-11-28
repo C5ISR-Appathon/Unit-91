@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Inventory.h"
+
 @interface InventoryCreateViewController : UIViewController
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) Inventory *createdInventory;
 
 @end
