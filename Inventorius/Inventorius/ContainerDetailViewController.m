@@ -105,7 +105,7 @@
     if (asset != nil)
     {
         cell.assetTitle.text = asset.strName;
-        cell.imageView.image = [UIImage imageWithContentsOfFile:asset.strImagePathThumb];
+        cell.imageView.image = [UIImage imageWithContentsOfFile:asset.strImagePath];
     }
     return cell;
 }

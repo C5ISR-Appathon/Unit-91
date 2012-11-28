@@ -9,6 +9,8 @@
 #import "Container.h"
 #import "Item.h"
 #import "AssetCreateViewController.h"
+#import "Inventory.h"
+
 
 @interface AssetCreateViewController ()
 
@@ -99,9 +101,8 @@
 - (IBAction)onDoneButton:(id)sender {
     
     //If is container
-    if (m_containerSwitch.enabled)
-    {
-        
+    if (m_containerSwitch.isSelected)
+    {        
         self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
         if ([self.createdAsset isKindOfClass:[Container class]])
         {
@@ -127,10 +128,26 @@
     //Check to see who pushed to us; we want to return to them
     if ([m_parentAsset isKindOfClass:[Container class]])
     {
+        Container *container = (Container*) m_parentAsset;
+        [container addAssetsObject:self.createdAsset];
+        
+        NSError *error;
+        if (![[self managedObjectContext] save:&error])
+        {
+            NSLog(@"Could not save: %@", error.description);
+        }
         [self performSegueWithIdentifier:@"SegueAssetCreateToContainerDetail" sender:self];
     }
     else
     {
+        Inventory *inventory = (Inventory*) m_parentAsset;
+        [inventory addAssetsObject:self.createdAsset];
+        
+        NSError *error;
+        if (![[self managedObjectContext] save:&error])
+        {
+            NSLog(@"Could not save: %@", error.description);
+        }
         [self performSegueWithIdentifier:@"SegueAssetCreateToInventoryDetail" sender:self];
     }
 }

@@ -56,6 +56,19 @@
     
     self.title = self.detailItem.strName;
     
+    for (Asset* asset in self.detailItem.assets.allObjects)
+    {
+        if ([asset isKindOfClass:[Item class]])
+        {
+            NSLog(@"ITEM");
+        }
+        else if ([asset isKindOfClass:[Container class]])
+        {
+            NSLog(@"CONTAINER");
+        }
+        NSLog(@"Asset: %@", asset.strName);
+    }
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -123,7 +136,7 @@
     if (asset != nil)
     {
         cell.assetTitle.text = asset.strName;
-        cell.imageView.image = [UIImage imageWithContentsOfFile:asset.strImagePathThumb];
+        cell.imageView.image = [UIImage imageWithContentsOfFile:asset.strImagePath];
     }
     return cell;
 }
@@ -133,11 +146,11 @@
     Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:indexPath.row];
     if([asset isKindOfClass:[Item class]])
     {
-            [self performSegueWithIdentifier:@"SegueInventoryDetailToItemDetail" sender:self];
+        [self performSegueWithIdentifier:@"SegueInventoryDetailToItemDetail" sender:self];
     }
     else if ([asset isKindOfClass:[Container class]])
     {
-            [self performSegueWithIdentifier:@"SegueInventoryDetailToContainerDetail" sender:self];
+        [self performSegueWithIdentifier:@"SegueInventoryDetailToContainerDetail" sender:self];
     }
 }
 
