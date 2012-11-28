@@ -10,6 +10,7 @@
 #import "Item.h"
 #import "AssetCreateViewController.h"
 #import "Inventory.h"
+#import "ImagePicker.h"
 
 
 @interface AssetCreateViewController ()
@@ -24,7 +25,6 @@
 @synthesize m_nameTextField;
 @synthesize m_quantityTextField;
 @synthesize m_descriptionTextField;
-@synthesize selectedImage;
 @synthesize picker;
 @synthesize m_authorizedIssueNumberTextField;
 @synthesize m_nsnTextField;
@@ -68,7 +68,7 @@
 }
 
 - (IBAction)cameraButtonPressed:(id)sender {
-    picker = [[UIImagePickerController alloc] init];
+    picker = [ImagePicker sharedSingleton];
     
     picker.delegate = self;
     
@@ -165,41 +165,41 @@
     [[self parentViewController] dismissViewControllerAnimated:(YES) completion:^{}];
 }
 
-- (void) imagePickerController:(UIImagePickerController*) Picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
-    [[self parentViewController] dismissViewControllerAnimated:YES completion:^{}];
-    Picker = nil;
-    
-    
-    
-    selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
-    
-    [m_cameraButton setBackgroundImage:selectedImage forState:UIControlStateNormal];
-    
-    NSMutableString  *jpgPath = [[NSMutableString alloc] init];
-    
-    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSString* urlPath = [url path];
-    
-    [jpgPath appendString:urlPath];
-    [jpgPath appendString:@"/"];
-    
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"MMM-dd-yyyy_HH-mm-ss"];
-    
-    NSDate* currentTime = [NSDate date];
-    
-    NSString* fileStamp = [format stringFromDate:currentTime];
-    
-    [jpgPath appendString:fileStamp];
-    [jpgPath appendString:@".jpg"];
-    
-    NSData* jpg = UIImageJPEGRepresentation(selectedImage, 1.0);
-    
-    [jpg writeToFile:jpgPath atomically:NO];
-    
-    //self.createdInventory.strImagePath = jpgPath;
-    m_assetPath = jpgPath;
-
+- (void) imagePickerController:(UIImagePickerController*) Picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    @autoreleasepool
+    {    
+        [[self parentViewController] dismissViewControllerAnimated:YES completion:^{}];
+        
+        UIImageView* selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+                
+        NSMutableString *jpgPath = [[NSMutableString alloc] init];
+        
+        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        NSString* urlPath = [url path];
+        
+        [jpgPath appendString:urlPath];
+        [jpgPath appendString:@"/"];
+        
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"MMM-dd-yyyy_HH-mm-ss"];
+        
+        NSDate* currentTime = [NSDate date];
+        
+        NSString* fileStamp = [format stringFromDate:currentTime];
+        
+        [jpgPath appendString:fileStamp];
+        [jpgPath appendString:@".jpg"];
+        
+        NSData* jpg = UIImageJPEGRepresentation(selectedImage, 0.7);
+        
+        [jpg writeToFile:jpgPath atomically:NO];
+        
+        [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:jpgPath] forState:UIControlStateNormal];
+        
+        //self.createdInventory.strImagePath = jpgPath;
+        m_assetPath = jpgPath;
     }
+
+}
 @end

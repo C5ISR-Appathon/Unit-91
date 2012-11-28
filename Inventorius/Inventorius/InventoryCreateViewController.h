@@ -18,12 +18,12 @@
 
 @property (strong, nonatomic) Inventory *createdInventory;
 
-@property (strong, nonatomic) IBOutlet UIButton *m_cameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *m_cameraButton;
 @property (strong, nonatomic) IBOutlet UITextField *m_nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *m_ownerTextField;
 @property (strong, nonatomic) IBOutlet UITextField *m_descriptionTextField;
 @property (strong, nonatomic) UIImagePickerController *picker;
-@property (nonatomic, retain) UIImageView* selectedImage;
+//@property (nonatomic, retain) UIImageView* selectedImage;
 - (IBAction)cameraButtonPressed:(id)sender;
 - (IBAction)nameEntered:(id)sender;
 - (IBAction)ownerEntered:(id)sender;

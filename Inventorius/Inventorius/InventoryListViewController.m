@@ -143,7 +143,7 @@
 {
     if ([[segue identifier] isEqualToString:@"SegueToInventoryDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        Inventory *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
     
         // pass the managedObjectContext
