@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07628361166653C300FAFB16 /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628360166653C300FAFB16 /* Inventory.m */; };
-		07628364166653C300FAFB16 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628363166653C300FAFB16 /* Item.m */; };
-		07628367166653C300FAFB16 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628366166653C300FAFB16 /* Asset.m */; };
-		0762836A166653C300FAFB16 /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628369166653C300FAFB16 /* Container.m */; };
 		524D53CF1666518300556439 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53CE1666518300556439 /* UIKit.framework */; };
 		524D53D11666518300556439 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53D01666518300556439 /* Foundation.framework */; };
 		524D53D31666518300556439 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53D21666518300556439 /* CoreGraphics.framework */; };
@@ -29,6 +25,7 @@
 		5252ADB4166654210002EDC5 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADB3166654210002EDC5 /* ItemDetailViewController.m */; };
 		5252ADB71666547E0002EDC5 /* ContainerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADB61666547E0002EDC5 /* ContainerDetailViewController.m */; };
 		5252ADBA166654980002EDC5 /* ItemCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADB9166654980002EDC5 /* ItemCreateViewController.m */; };
+		5252ADC3166655990002EDC5 /* AssetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252ADC2166655990002EDC5 /* AssetCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +33,10 @@
 		07628360166653C300FAFB16 /* Inventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inventory.m; sourceTree = "<group>"; };
 		07628362166653C300FAFB16 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		07628363166653C300FAFB16 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
-		07628365166653C300FAFB16 /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
-		07628366166653C300FAFB16 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		07628368166653C300FAFB16 /* Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Container.h; sourceTree = "<group>"; };
 		07628369166653C300FAFB16 /* Container.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Container.m; sourceTree = "<group>"; };
+		0762836F1666555B00FAFB16 /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
+		076283701666555C00FAFB16 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		524D53CA1666518300556439 /* Inventorius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inventorius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524D53CE1666518300556439 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		524D53D01666518300556439 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,6 +65,8 @@
 		5252ADB61666547E0002EDC5 /* ContainerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerDetailViewController.m; sourceTree = "<group>"; };
 		5252ADB8166654980002EDC5 /* ItemCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCreateViewController.h; sourceTree = "<group>"; };
 		5252ADB9166654980002EDC5 /* ItemCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCreateViewController.m; sourceTree = "<group>"; };
+		5252ADC1166655990002EDC5 /* AssetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetCollectionViewCell.h; sourceTree = "<group>"; };
+		5252ADC2166655990002EDC5 /* AssetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,21 +89,40 @@
 			children = (
 				07628368166653C300FAFB16 /* Container.h */,
 				07628369166653C300FAFB16 /* Container.m */,
-				07628365166653C300FAFB16 /* Asset.h */,
-				07628366166653C300FAFB16 /* Asset.m */,
 				07628362166653C300FAFB16 /* Item.h */,
 				07628363166653C300FAFB16 /* Item.m */,
 				0762835F166653C300FAFB16 /* Inventory.h */,
 				07628360166653C300FAFB16 /* Inventory.m */,
+				0762836F1666555B00FAFB16 /* Asset.h */,
+				076283701666555C00FAFB16 /* Asset.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		076283731666557900FAFB16 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				524D53EE1666518300556439 /* InventoryListViewController.h */,
+				524D53EF1666518300556439 /* InventoryListViewController.m */,
+				524D53F11666518300556439 /* InventoryDetailViewController.h */,
+				524D53F21666518300556439 /* InventoryDetailViewController.m */,
+				5252ADAE166653580002EDC5 /* InventoryCreateViewController.h */,
+				5252ADAF166653580002EDC5 /* InventoryCreateViewController.m */,
+				5252ADB2166654210002EDC5 /* ItemDetailViewController.h */,
+				5252ADB3166654210002EDC5 /* ItemDetailViewController.m */,
+				5252ADB51666547E0002EDC5 /* ContainerDetailViewController.h */,
+				5252ADB61666547E0002EDC5 /* ContainerDetailViewController.m */,
+				5252ADB8166654980002EDC5 /* ItemCreateViewController.h */,
+				5252ADB9166654980002EDC5 /* ItemCreateViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		524D53BF1666518300556439 = {
 			isa = PBXGroup;
 			children = (
-				524D53D61666518300556439 /* Inventorius */,
 				524D53CD1666518300556439 /* Frameworks */,
+				524D53D61666518300556439 /* Inventorius */,
 				524D53CB1666518300556439 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,24 +149,13 @@
 		524D53D61666518300556439 /* Inventorius */ = {
 			isa = PBXGroup;
 			children = (
+				5252ADBF1666553D0002EDC5 /* UIComponents */,
 				076283511666529700FAFB16 /* Model */,
 				524D53DF1666518300556439 /* AppDelegate.h */,
 				524D53E01666518300556439 /* AppDelegate.m */,
 				524D53E81666518300556439 /* MainStoryboard.storyboard */,
-				524D53EE1666518300556439 /* InventoryListViewController.h */,
-				524D53EF1666518300556439 /* InventoryListViewController.m */,
-				524D53F11666518300556439 /* InventoryDetailViewController.h */,
-				524D53F21666518300556439 /* InventoryDetailViewController.m */,
 				524D53EB1666518300556439 /* Inventorius.xcdatamodeld */,
 				524D53D71666518300556439 /* Supporting Files */,
-				5252ADAE166653580002EDC5 /* InventoryCreateViewController.h */,
-				5252ADAF166653580002EDC5 /* InventoryCreateViewController.m */,
-				5252ADB2166654210002EDC5 /* ItemDetailViewController.h */,
-				5252ADB3166654210002EDC5 /* ItemDetailViewController.m */,
-				5252ADB51666547E0002EDC5 /* ContainerDetailViewController.h */,
-				5252ADB61666547E0002EDC5 /* ContainerDetailViewController.m */,
-				5252ADB8166654980002EDC5 /* ItemCreateViewController.h */,
-				5252ADB9166654980002EDC5 /* ItemCreateViewController.m */,
 			);
 			path = Inventorius;
 			sourceTree = "<group>";
@@ -165,6 +172,15 @@
 				524D53E61666518300556439 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5252ADBF1666553D0002EDC5 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				5252ADC1166655990002EDC5 /* AssetCollectionViewCell.h */,
+				5252ADC2166655990002EDC5 /* AssetCollectionViewCell.m */,
+			);
+			name = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +258,7 @@
 				5252ADB4166654210002EDC5 /* ItemDetailViewController.m in Sources */,
 				5252ADB71666547E0002EDC5 /* ContainerDetailViewController.m in Sources */,
 				5252ADBA166654980002EDC5 /* ItemCreateViewController.m in Sources */,
+				5252ADC3166655990002EDC5 /* AssetCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
