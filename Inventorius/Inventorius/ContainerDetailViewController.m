@@ -11,6 +11,8 @@
 #import "Item.h"
 #import "Container.h"
 
+#import "ItemCreateViewController.h"
+
 @interface ContainerDetailViewController ()
 
 @end
@@ -32,6 +34,14 @@
 	// Do any additional setup after loading the view.
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddButton:)];
     self.navigationItem.rightBarButtonItem = addButton;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"SegueContainerDetailToAssetCreate"])
+    {
+        ((ItemCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }    
 }
 
 - (void)didReceiveMemoryWarning
