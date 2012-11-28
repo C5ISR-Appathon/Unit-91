@@ -145,6 +145,7 @@
         [jpg writeToFile:jpgPath atomically:NO];
         
         self.createdInventory.strImagePath = jpgPath;
+        m_imagePath = jpgPath;
         [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:jpgPath] forState:UIControlStateNormal];
     }
 }

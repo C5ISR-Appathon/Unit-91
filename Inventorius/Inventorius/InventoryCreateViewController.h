@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *m_descriptionTextField;
 @property (strong, nonatomic) UIImagePickerController *picker;
 //@property (nonatomic, retain) UIImageView* selectedImage;
+@property (strong, nonatomic) NSString* m_imagePath;
 - (IBAction)cameraButtonPressed:(id)sender;
 
 @end
