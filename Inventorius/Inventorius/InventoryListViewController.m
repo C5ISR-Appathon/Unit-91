@@ -7,9 +7,7 @@
 //
 
 #import "InventoryListViewController.h"
-
 #import "InventoryDetailViewController.h"
-
 #import "InventoryCreateViewController.h"
 
 @interface InventoryListViewController ()
@@ -114,17 +112,22 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"SegueToInventoryDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
+    
+        // pass the managedObjectContext
+        ((InventoryDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
     
     if ([[segue identifier] isEqualToString:@"SegueToInventoryCreate"])
     {
         // pass the managedObjectContext
         ((InventoryCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
-    }}
+    }
+
+}
 
 #pragma mark - Fetched results controller
 

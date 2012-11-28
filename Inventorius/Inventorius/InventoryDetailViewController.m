@@ -48,6 +48,18 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddButton:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
+    self.title = self.detailItem.strName;
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([[segue identifier] isEqualToString:@"SegueToInventoryDetail"])
+    {        
+        // pass the managedObjectContext
+        ((InventoryDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,13 +83,13 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.detailItem count];
+    return [self.detailItem.assets count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     AssetCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    Asset* asset = [self.detailItem objectAtIndex:(indexPath.row)];
+    Asset* asset = [self.detailItem.assets.allObjects objectAtIndex:(indexPath.row)];
     if (asset != nil)
     {
         cell.assetTitle.text = asset.strName;

@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Inventory.h"
+
 @interface InventoryDetailViewController : UICollectionViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) Inventory *detailItem;
 
 
 @end
