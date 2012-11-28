@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 unit91. All rights reserved.
 //
 
-#import "ItemCreateViewController.h"
+#import "AssetCreateViewController.h"
 
-@interface ItemCreateViewController ()
+@interface AssetCreateViewController ()
 
 @end
 
-@implementation ItemCreateViewController
+@implementation AssetCreateViewController
 
 @synthesize m_cameraButton;
 @synthesize m_containerInventoryLabel;

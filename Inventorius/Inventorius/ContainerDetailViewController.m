@@ -11,7 +11,7 @@
 #import "Item.h"
 #import "Container.h"
 
-#import "ItemCreateViewController.h"
+#import "AssetCreateViewController.h"
 
 @interface ContainerDetailViewController ()
 
@@ -40,7 +40,7 @@
 {
     if ([[segue identifier] isEqualToString:@"SegueContainerDetailToAssetCreate"])
     {
-        ((ItemCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }    
 }
 

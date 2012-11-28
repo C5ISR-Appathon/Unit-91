@@ -141,10 +141,10 @@
             </objects>
             <point key="canvasLocation" x="447" y="64"/>
         </scene>
-        <!--Item Create View Controller-->
+        <!--Asset Create View Controller-->
         <scene sceneID="ISl-1u-g38">
             <objects>
-                <viewController id="qTC-eO-wF9" customClass="ItemCreateViewController" sceneMemberID="viewController">
+                <viewController id="qTC-eO-wF9" customClass="AssetCreateViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bYu-lf-Y5K">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
