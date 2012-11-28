@@ -40,7 +40,7 @@
 - (void)onAddButton:(id)sender
 {
     // do segue to InventoryCreate
-    
+    [self performSegueWithIdentifier:@"SegueToInventoryCreate" sender:self];
     
     /*
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
