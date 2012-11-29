@@ -155,4 +155,49 @@
     }
 }
 
+- (IBAction)exportInventory:(id)sender {
+    
+    NSMutableString* exportString = [[NSMutableString alloc] init];
+    [exportString appendString:@"Inventory Name: "];
+    [exportString appendString:_detailItem.strName];
+    [exportString appendString:@"|"];
+    [exportString appendString:@"Owner: "];
+    [exportString appendString:_detailItem.owner];
+    [exportString appendString:@"|"];
+    [exportString appendString:@"Description: "];
+    [exportString appendString:_detailItem.strDescription];
+    [exportString appendString:@"|"];
+    
+    NSSet* assets = _detailItem.assets;
+    NSArray* allAssets = assets.allObjects;
+    
+    for (int i = 0; i < allAssets.count; ++i)
+    {
+        Asset* currentAsset = ((Asset*)[allAssets objectAtIndex:i]);
+        [exportString appendString:@"Asset name: "];
+        [exportString appendString:currentAsset.strName];
+        [exportString appendString:@"|"];
+        [exportString appendString:@"Asset description: "];
+        [exportString appendString:currentAsset.strDescription];
+        [exportString appendString:@"|"];
+    }
+    
+    
+    NSMutableString* outputFileName = [[NSMutableString alloc] init];
+    
+    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSString* urlPath = [url path];
+    
+    [outputFileName appendString:urlPath];
+    [outputFileName appendString:@"/"];
+    
+    [outputFileName appendString:_detailItem.strName];
+    [outputFileName appendString:@".txt"];
+    
+    [exportString writeToFile:outputFileName
+              atomically:NO
+                encoding:NSStringEncodingConversionAllowLossy
+                   error:nil];
+    
+}
 @end

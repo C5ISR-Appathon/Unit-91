@@ -22,5 +22,6 @@
 @property Container *selectedContainer;
 @property Item *selectedItem;
 
+- (IBAction)exportInventory:(id)sender;
 
 @end
