@@ -30,6 +30,7 @@
 @synthesize m_nsnTextField;
 @synthesize m_unitOfIssueTextField;
 @synthesize m_assetPath;
+@synthesize m_thumbPath;
 @synthesize m_parentAsset;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -79,8 +80,9 @@
         
         m_descriptionTextField.text = self.createdAsset.strDescription;
         m_assetPath = self.createdAsset.strImagePath;
+        m_thumbPath = self.createdAsset.strImagePathThumb;
         m_nameTextField.text = self.createdAsset.strName;
-        [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:m_assetPath] forState:UIControlStateNormal];
+        [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:m_thumbPath] forState:UIControlStateNormal];
     }
     
 }
@@ -156,6 +158,7 @@
     }
     self.createdAsset.strDescription = m_descriptionTextField.text;
     self.createdAsset.strImagePath = m_assetPath;
+    self.createdAsset.strImagePathThumb = m_thumbPath;
     self.createdAsset.strName = m_nameTextField.text;
     
     //Check to see who pushed to us; we want to return to them
@@ -220,9 +223,10 @@
     {    
         [[self parentViewController] dismissViewControllerAnimated:YES completion:^{}];
         
-        UIImageView* selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+        UIImage* selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
                 
         NSMutableString *jpgPath = [[NSMutableString alloc] init];
+        NSMutableString *thumbPath = [[NSMutableString alloc] init];
         
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         NSString* urlPath = [url path];
@@ -238,16 +242,31 @@
         NSString* fileStamp = [format stringFromDate:currentTime];
         
         [jpgPath appendString:fileStamp];
+        [thumbPath appendString:jpgPath];
+        [thumbPath appendString:@"-thumb.jpg"];
         [jpgPath appendString:@".jpg"];
         
         NSData* jpg = UIImageJPEGRepresentation(selectedImage, 0.7);
         
         [jpg writeToFile:jpgPath atomically:NO];
         
-        [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:jpgPath] forState:UIControlStateNormal];
         
-        //self.createdInventory.strImagePath = jpgPath;
+        CGSize destinationSize = CGSizeMake(128, 128);
+        
+        UIGraphicsBeginImageContext(destinationSize);
+        [selectedImage drawInRect:CGRectMake(0,0,destinationSize.width,destinationSize.height)];
+        UIImage *thumbImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        // TODO : fix for aspect ratio
+        NSData *thumb = UIImageJPEGRepresentation(thumbImage, 1.0);
+        
+        [thumb writeToFile:thumbPath atomically:NO];
+        
+        [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:thumbPath] forState:UIControlStateNormal];
+        
         m_assetPath = jpgPath;
+        m_thumbPath = thumbPath;
     }
 
 }
