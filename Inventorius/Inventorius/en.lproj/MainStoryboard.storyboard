@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12B2100" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -327,19 +327,26 @@
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAH-jw-dQk">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="043-Wd-LJZ" firstAttribute="bottom" secondItem="ApY-ba-rnB" secondAttribute="bottom" type="default" id="7Pt-Cw-Fse"/>
-                                    <constraint firstItem="BDg-c2-42z" firstAttribute="centerX" secondItem="ApY-ba-rnB" secondAttribute="centerX" type="default" id="EaB-id-x58"/>
-                                    <constraint firstItem="043-Wd-LJZ" firstAttribute="centerX" secondItem="BDg-c2-42z" secondAttribute="centerX" type="default" id="G0o-EL-yHm"/>
+                                    <constraint firstAttribute="bottom" secondItem="AAH-jw-dQk" secondAttribute="bottom" constant="7" id="GrE-HM-r7t"/>
                                     <constraint firstItem="043-Wd-LJZ" firstAttribute="top" secondItem="ApY-ba-rnB" secondAttribute="top" type="default" id="JeF-qf-bFE"/>
+                                    <constraint firstItem="AAH-jw-dQk" firstAttribute="centerX" secondItem="ApY-ba-rnB" secondAttribute="centerX" type="default" id="Wnl-Os-RQI"/>
+                                    <constraint firstItem="AAH-jw-dQk" firstAttribute="centerX" secondItem="043-Wd-LJZ" secondAttribute="centerX" type="default" id="jiJ-70-116"/>
                                     <constraint firstItem="043-Wd-LJZ" firstAttribute="leading" secondItem="ApY-ba-rnB" secondAttribute="leading" type="default" id="mmu-Qs-hAY"/>
+                                    <constraint firstItem="AAH-jw-dQk" firstAttribute="leading" secondItem="BDg-c2-42z" secondAttribute="leading" type="default" id="n4y-GT-YaA"/>
                                     <constraint firstItem="BDg-c2-42z" firstAttribute="top" secondItem="ApY-ba-rnB" secondAttribute="top" constant="548" id="u8C-LZ-E3p"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="assetTitle" destination="BDg-c2-42z" id="0Vu-sI-8ae"/>
+                                    <outlet property="assetTitle" destination="AAH-jw-dQk" id="E4b-qQ-5dD"/>
                                     <outlet property="imageView" destination="043-Wd-LJZ" id="Wbt-Uw-1tl"/>
                                 </connections>
                             </collectionViewCell>
@@ -635,10 +642,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jg3-eW-ErD"/>
-        <segue reference="h82-Ig-Co5"/>
-        <segue reference="04j-q7-miU"/>
         <segue reference="Bcf-VU-Ugl"/>
-        <segue reference="0hJ-Pp-JHr"/>
+        <segue reference="aP1-Xl-1Ak"/>
+        <segue reference="04j-q7-miU"/>
+        <segue reference="MEO-V8-dHQ"/>
+        <segue reference="jg3-eW-ErD"/>
     </inferredMetricsTieBreakers>
 </document>
