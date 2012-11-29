@@ -122,9 +122,6 @@
     {
         ((ContainerDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
-    
-    
-    
 }
 
 - (IBAction)onDoneButton:(id)sender {
@@ -166,8 +163,23 @@
         {
             ((Item *) self.createdAsset).nsn = m_nsnTextField.text;
             ((Item *) self.createdAsset).authorizedIssue = [NSDecimalNumber decimalNumberWithString:m_authorizedIssueNumberTextField.text];
+            if ([((Item *) self.createdAsset).authorizedIssue isEqualToNumber:[NSDecimalNumber notANumber]])
+            {
+                ((Item *) self.createdAsset).authorizedIssue = 0;
+            }
+            
             ((Item *) self.createdAsset).quantity = [NSDecimalNumber decimalNumberWithString:m_quantityTextField.text];
+            
+            if ([((Item *) self.createdAsset).quantity isEqualToNumber:[NSDecimalNumber notANumber]])
+            {
+                ((Item *) self.createdAsset).quantity = 0;
+            }
             ((Item *) self.createdAsset).unitOfIssue = [NSDecimalNumber decimalNumberWithString:m_unitOfIssueTextField.text];
+            if ([((Item *) self.createdAsset).unitOfIssue isEqualToNumber:[NSDecimalNumber notANumber]])
+            {
+                ((Item *) self.createdAsset).unitOfIssue = 0;
+            }
+            
         }
     }
     self.createdAsset.strDescription = m_descriptionTextField.text;
