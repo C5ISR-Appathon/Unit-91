@@ -26,5 +26,6 @@
 @property Item *selectedItem;
 
 - (IBAction)exportInventory:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *toolbarView;
 
 @end
