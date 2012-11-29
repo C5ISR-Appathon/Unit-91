@@ -45,6 +45,11 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self configureView];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -68,6 +73,14 @@
         }
         NSLog(@"Asset: %@", asset.strName);
     }
+    
+//    if(self.navItemToRemove != nil)
+//    {
+//        NSMutableArray *myNavigationStack = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+//        [myNavigationStack removeObject: self.navItemToRemove];
+//        self.navigationController.viewControllers = myNavigationStack;
+//        [self.collectionView reloadData];
+//    }
     
 }
 
