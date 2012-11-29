@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12B2100" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -285,10 +285,11 @@
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="ErO-gi-f6G">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="46"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ilp-vk-iKH">
                             <size key="itemSize" width="150" height="150"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="0.0" height="10"/>
+                            <size key="footerReferenceSize" width="0.0" height="46"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <view key="backgroundView" contentMode="scaleToFill" id="ck3-re-XkG">
@@ -305,7 +306,7 @@
                                     </items>
                                 </toolbar>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="9v8-hE-OKi" firstAttribute="leading" secondItem="ck3-re-XkG" secondAttribute="leading" type="default" id="GSJ-l5-e6z"/>
                                 <constraint firstItem="9v8-hE-OKi" firstAttribute="bottom" secondItem="ck3-re-XkG" secondAttribute="bottom" type="default" id="fJ4-ts-Nxz"/>
@@ -314,7 +315,7 @@
                         </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ApY-ba-rnB" customClass="AssetCollectionViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                <rect key="frame" x="0.0" y="10" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -330,12 +331,12 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="043-Wd-LJZ" firstAttribute="trailing" secondItem="ApY-ba-rnB" secondAttribute="trailing" type="default" id="0mW-DS-Bz3"/>
                                     <constraint firstItem="043-Wd-LJZ" firstAttribute="bottom" secondItem="ApY-ba-rnB" secondAttribute="bottom" type="default" id="7Pt-Cw-Fse"/>
+                                    <constraint firstItem="BDg-c2-42z" firstAttribute="centerX" secondItem="ApY-ba-rnB" secondAttribute="centerX" type="default" id="EaB-id-x58"/>
                                     <constraint firstItem="043-Wd-LJZ" firstAttribute="centerX" secondItem="BDg-c2-42z" secondAttribute="centerX" type="default" id="G0o-EL-yHm"/>
                                     <constraint firstItem="043-Wd-LJZ" firstAttribute="top" secondItem="ApY-ba-rnB" secondAttribute="top" type="default" id="JeF-qf-bFE"/>
-                                    <constraint firstAttribute="bottom" secondItem="BDg-c2-42z" secondAttribute="bottom" constant="6" id="l5g-40-dlP"/>
                                     <constraint firstItem="043-Wd-LJZ" firstAttribute="leading" secondItem="ApY-ba-rnB" secondAttribute="leading" type="default" id="mmu-Qs-hAY"/>
+                                    <constraint firstItem="BDg-c2-42z" firstAttribute="top" secondItem="ApY-ba-rnB" secondAttribute="top" constant="548" id="u8C-LZ-E3p"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="assetTitle" destination="BDg-c2-42z" id="0Vu-sI-8ae"/>
@@ -343,6 +344,14 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Lav-Iw-MOy">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Qi-n7-nom">
+                            <rect key="frame" x="0.0" y="160" width="320" height="46"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="HR9-Cr-QsZ" id="MMy-wf-7JF"/>
                             <outlet property="delegate" destination="HR9-Cr-QsZ" id="DPr-E3-bw3"/>
@@ -350,6 +359,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="tmk-Jy-Nza"/>
                     <connections>
+                        <outlet property="toolbarView" destination="ck3-re-XkG" id="OyU-HS-6ZM"/>
                         <segue destination="qTC-eO-wF9" kind="push" identifier="SegueInventoryDetailToAssetCreate" id="aP1-Xl-1Ak"/>
                         <segue destination="Y1g-Yz-vDr" kind="push" identifier="SegueInventoryDetailToContainerDetail" id="MEO-V8-dHQ"/>
                         <segue destination="Nda-uI-YTq" kind="push" identifier="SegueInventoryDetailToItemDetail" id="04j-q7-miU"/>
@@ -582,6 +592,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InventoryDetailViewController.h"/>
             <relationships>
                 <relationship kind="action" name="exportInventory:"/>
+                <relationship kind="outlet" name="toolbarView" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="InventoryListViewController" superclassName="UITableViewController">
