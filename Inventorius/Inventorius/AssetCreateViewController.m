@@ -198,8 +198,18 @@
         }
     }
     self.createdAsset.strDescription = m_descriptionTextField.text;
-    self.createdAsset.strImagePath = m_assetPath;
-    self.createdAsset.strImagePathThumb = m_thumbPath;
+    if(m_assetPath != nil)
+    {
+        self.createdAsset.strImagePath = m_assetPath;
+        self.createdAsset.strImagePathThumb = m_thumbPath;
+    }
+    else
+    {
+        self.createdAsset.strImagePath = [[NSBundle mainBundle] pathForResource:@"inventory_icon_retina" ofType:@"png"];
+        self.createdAsset.strImagePathThumb = [[NSBundle mainBundle] pathForResource:@"inventory_icon_retina" ofType:@"png"];
+
+    }
+    
     self.createdAsset.strName = m_nameTextField.text;
     
     //Check to see who pushed to us; we want to return to them
