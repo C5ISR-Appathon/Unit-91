@@ -32,6 +32,7 @@
 		52E1DEE4166688F800373F32 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628363166653C300FAFB16 /* Item.m */; };
 		52E1DEE51666890300373F32 /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 07628369166653C300FAFB16 /* Container.m */; };
 		52E1DEF01666BDC600373F32 /* ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DEEF1666BDC600373F32 /* ImagePicker.m */; };
+		AF3087941666E40000C826D0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3087931666E40000C826D0 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,8 @@
 		52E1DEDF1666734800373F32 /* DefaultContainerImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultContainerImage.png; sourceTree = "<group>"; };
 		52E1DEEE1666BDC600373F32 /* ImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePicker.h; sourceTree = "<group>"; };
 		52E1DEEF1666BDC600373F32 /* ImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePicker.m; sourceTree = "<group>"; };
+		AF3087901666E3B900C826D0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AF3087931666E40000C826D0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF3087941666E40000C826D0 /* MessageUI.framework in Frameworks */,
 				524D53CF1666518300556439 /* UIKit.framework in Frameworks */,
 				524D53D11666518300556439 /* Foundation.framework in Frameworks */,
 				524D53D31666518300556439 /* CoreGraphics.framework in Frameworks */,
@@ -130,6 +134,8 @@
 		524D53BF1666518300556439 = {
 			isa = PBXGroup;
 			children = (
+				AF3087931666E40000C826D0 /* MessageUI.framework */,
+				AF3087901666E3B900C826D0 /* QuartzCore.framework */,
 				524D53CD1666518300556439 /* Frameworks */,
 				524D53D61666518300556439 /* Inventorius */,
 				524D53CB1666518300556439 /* Products */,

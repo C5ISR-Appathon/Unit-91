@@ -9,6 +9,8 @@
 #import "InventoryDetailViewController.h"
 #import "AssetCollectionViewCell.h"
 
+#import <MessageUI/MFMailComposeViewController.h>
+
 #import "Item.h"
 #import "Container.h"
 #import "ContainerDetailViewController.h"
@@ -196,7 +198,7 @@
     }
     
     
-    NSMutableString* outputFileName = [[NSMutableString alloc] init];
+    /*NSMutableString* outputFileName = [[NSMutableString alloc] init];
     
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSString* urlPath = [url path];
@@ -210,7 +212,27 @@
     [exportString writeToFile:outputFileName
               atomically:NO
                 encoding:NSStringEncodingConversionAllowLossy
-                   error:nil];
+                   error:nil];*/
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+        controller.mailComposeDelegate = self;
+        [controller setSubject:@"Inventory Report"];
+        [controller setMessageBody:exportString isHTML:NO];
+        if (controller) [self presentModalViewController:controller animated:YES];
+    } else {
+        // Handle the error
+    }
     
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent) {
+        NSLog(@"It's away!");
+    }
+    [self dismissModalViewControllerAnimated:YES];
 }
 @end

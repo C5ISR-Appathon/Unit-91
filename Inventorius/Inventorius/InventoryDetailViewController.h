@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
 #import "Inventory.h"
 #import "Container.h"
 #import "Item.h"
 #import "AssetCreateViewController.h"
 
-@interface InventoryDetailViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
+@interface InventoryDetailViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout, MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
