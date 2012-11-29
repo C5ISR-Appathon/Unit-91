@@ -31,6 +31,7 @@
 @synthesize m_nsnTextField;
 @synthesize m_unitOfIssueTextField;
 @synthesize m_assetPath;
+@synthesize m_thumbPath;
 @synthesize m_parentAsset;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -80,8 +81,9 @@
         
         m_descriptionTextField.text = self.createdAsset.strDescription;
         m_assetPath = self.createdAsset.strImagePath;
+        m_thumbPath = self.createdAsset.strImagePathThumb;
         m_nameTextField.text = self.createdAsset.strName;
-        [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:m_assetPath] forState:UIControlStateNormal];
+        [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:m_thumbPath] forState:UIControlStateNormal];
     }
     
 }
@@ -127,14 +129,20 @@
 
 - (IBAction)onDoneButton:(id)sender {
     
+    BOOL isNewAsset = YES;
     //If is container
     if (m_containerSwitch.isOn)
     {
         
-        if (self.createdAsset != nil)
+        if (self.createdAsset == nil)
         {
             self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
         }
+        else
+        {
+            isNewAsset = NO;
+        }
+        
         if ([self.createdAsset isKindOfClass:[Container class]])
         {
             ((Container *) self.createdAsset).assets = [[NSSet alloc] init];
@@ -143,9 +151,15 @@
     }
     else
     {
-        if (self.createdAsset != nil)
+
+        if (self.createdAsset == nil)
         {
+
             self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
+        }
+        else
+        {
+            isNewAsset = NO;
         }
         
         if ([self.createdAsset isKindOfClass:[Item class]])
@@ -158,30 +172,37 @@
     }
     self.createdAsset.strDescription = m_descriptionTextField.text;
     self.createdAsset.strImagePath = m_assetPath;
+    self.createdAsset.strImagePathThumb = m_thumbPath;
     self.createdAsset.strName = m_nameTextField.text;
     
     //Check to see who pushed to us; we want to return to them
     if ([m_parentAsset isKindOfClass:[Container class]])
     {
-        Container *container = (Container*) m_parentAsset;
-        [container addAssetsObject:self.createdAsset];
+        if(isNewAsset == YES)
+        {
+            Container *container = (Container*) m_parentAsset;
+            [container addAssetsObject:self.createdAsset];
+        }
         
         NSError *error;
         if (![[self managedObjectContext] save:&error])
         {
-            NSLog(@"Could not save: %@", error.description);
+            NSLog(@"Could not save: %@", error.debugDescription);
         }
         //[self performSegueWithIdentifier:@"SegueAssetCreateToContainerDetail" sender:self];
     }
     else
     {
-        Inventory *inventory = (Inventory*) m_parentAsset;
-        [inventory addAssetsObject:self.createdAsset];
+        if(isNewAsset == YES)
+        {
+            Inventory *inventory = (Inventory*) m_parentAsset;
+            [inventory addAssetsObject:self.createdAsset];
+        }
         
         NSError *error;
         if (![[self managedObjectContext] save:&error])
         {
-            NSLog(@"Could not save: %@", error.description);
+            NSLog(@"Could not save: %@", error.debugDescription);
         }
         
         //[self performSegueWithIdentifier:@"SegueAssetCreateToInventoryDetail" sender:self];
@@ -225,9 +246,10 @@
     {    
         [[self parentViewController] dismissViewControllerAnimated:YES completion:^{}];
         
-        UIImageView* selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+        UIImage* selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
                 
         NSMutableString *jpgPath = [[NSMutableString alloc] init];
+        NSMutableString *thumbPath = [[NSMutableString alloc] init];
         
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         NSString* urlPath = [url path];
@@ -243,16 +265,31 @@
         NSString* fileStamp = [format stringFromDate:currentTime];
         
         [jpgPath appendString:fileStamp];
+        [thumbPath appendString:jpgPath];
+        [thumbPath appendString:@"-thumb.jpg"];
         [jpgPath appendString:@".jpg"];
         
         NSData* jpg = UIImageJPEGRepresentation(selectedImage, 0.7);
         
         [jpg writeToFile:jpgPath atomically:NO];
         
-        [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:jpgPath] forState:UIControlStateNormal];
         
-        //self.createdInventory.strImagePath = jpgPath;
+        CGSize destinationSize = CGSizeMake(128, 128);
+        
+        UIGraphicsBeginImageContext(destinationSize);
+        [selectedImage drawInRect:CGRectMake(0,0,destinationSize.width,destinationSize.height)];
+        UIImage *thumbImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        // TODO : fix for aspect ratio
+        NSData *thumb = UIImageJPEGRepresentation(thumbImage, 1.0);
+        
+        [thumb writeToFile:thumbPath atomically:NO];
+        
+        [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:thumbPath] forState:UIControlStateNormal];
+        
         m_assetPath = jpgPath;
+        m_thumbPath = thumbPath;
     }
 
 }

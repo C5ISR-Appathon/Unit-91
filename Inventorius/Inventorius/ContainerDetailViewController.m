@@ -15,7 +15,7 @@
 #import "AssetCreateViewController.h"
 
 @interface ContainerDetailViewController ()
-
+-(void) configureView;
 @end
 
 @implementation ContainerDetailViewController
@@ -27,6 +27,31 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)setDetailItem:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem)
+    {
+        _detailItem = newDetailItem;
+        
+        // Update the view.
+        [self configureView];
+    }
+}
+
+-(void)configureView
+{    
+    if (self.detailItem)
+    {
+        [self.collectionView reloadData];
+    }
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self configureView];
 }
 
 - (void)viewDidLoad
@@ -91,7 +116,7 @@
     if (asset != nil)
     {
         cell.assetTitle.text = asset.strName;
-        cell.imageView.image = [UIImage imageWithContentsOfFile:asset.strImagePath];
+        cell.imageView.image = [UIImage imageWithContentsOfFile:asset.strImagePathThumb];
     }
     return cell;
 }
