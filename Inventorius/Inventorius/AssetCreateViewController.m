@@ -45,9 +45,24 @@
 
 ///@TODO: On done/scene leave, determine which type we are (item/container), create that, and populate it with info. DO NOT CREATE AN ASSET ON LOAD.
 
+- (void)dismissKeyboard
+{
+    [m_quantityTextField resignFirstResponder];
+    [m_nameTextField resignFirstResponder];
+    [m_descriptionTextField resignFirstResponder];
+    [m_authorizedIssueNumberTextField resignFirstResponder];
+    [m_nsnTextField resignFirstResponder];
+    [m_unitOfIssueTextField resignFirstResponder];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
 	// Do any additional setup after loading the view.
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDoneButton:)];
@@ -122,9 +137,6 @@
     {
         ((ContainerDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
-    
-    
-    
 }
 
 - (IBAction)onDoneButton:(id)sender {
@@ -166,8 +178,23 @@
         {
             ((Item *) self.createdAsset).nsn = m_nsnTextField.text;
             ((Item *) self.createdAsset).authorizedIssue = [NSDecimalNumber decimalNumberWithString:m_authorizedIssueNumberTextField.text];
+            if ([((Item *) self.createdAsset).authorizedIssue isEqualToNumber:[NSDecimalNumber notANumber]])
+            {
+                ((Item *) self.createdAsset).authorizedIssue = 0;
+            }
+            
             ((Item *) self.createdAsset).quantity = [NSDecimalNumber decimalNumberWithString:m_quantityTextField.text];
+            
+            if ([((Item *) self.createdAsset).quantity isEqualToNumber:[NSDecimalNumber notANumber]])
+            {
+                ((Item *) self.createdAsset).quantity = 0;
+            }
             ((Item *) self.createdAsset).unitOfIssue = [NSDecimalNumber decimalNumberWithString:m_unitOfIssueTextField.text];
+            if ([((Item *) self.createdAsset).unitOfIssue isEqualToNumber:[NSDecimalNumber notANumber]])
+            {
+                ((Item *) self.createdAsset).unitOfIssue = 0;
+            }
+            
         }
     }
     self.createdAsset.strDescription = m_descriptionTextField.text;

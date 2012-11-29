@@ -27,6 +27,7 @@
 @property (strong, nonatomic) Asset *createdAsset;
 @property (strong, nonatomic) Asset* m_parentAsset;
 
+-(void)dismissKeyboard;
 - (IBAction)cameraButtonPressed:(id)sender;
 - (IBAction)onDoneButton:(id)sender;
 - (IBAction)onSwitch:(id)sender;

@@ -190,12 +190,72 @@
     for (int i = 0; i < allAssets.count; ++i)
     {
         Asset* currentAsset = ((Asset*)[allAssets objectAtIndex:i]);
-        [exportString appendString:@"Asset name: "];
-        [exportString appendString:currentAsset.strName];
-        [exportString appendString:@"|"];
-        [exportString appendString:@"Asset description: "];
-        [exportString appendString:currentAsset.strDescription];
-        [exportString appendString:@"|"];
+        
+        if ([currentAsset isKindOfClass:[Item class]])
+        {
+            Item* currentItem = ((Item*)currentAsset);
+            [exportString appendString:@"Item name: "];
+            [exportString appendString:currentItem.strName];
+            [exportString appendString:@"|"];
+            [exportString appendString:@"Item description: "];
+            [exportString appendString:currentItem.strDescription];
+            [exportString appendString:@"|"];
+            [exportString appendString:@"Item quantity: "];
+            [exportString appendString:currentItem.quantity.stringValue];
+            [exportString appendString:@"|"];
+            [exportString appendString:@"Unit of Issue: "];
+            [exportString appendString:currentItem.unitOfIssue.stringValue];
+            [exportString appendString:@"|"];
+            [exportString appendString:@"Authorized issue: "];
+            [exportString appendString:currentItem.authorizedIssue.stringValue];
+            [exportString appendString:@"|"];
+            [exportString appendString:@"NSN: "];
+            [exportString appendString:currentItem.nsn];
+            [exportString appendString:@"|"];
+        }
+        else if ([currentAsset isKindOfClass:[Container class]])
+        {
+            Container* currentContainer = ((Container*) currentAsset);
+            [exportString appendString:@"Container name: "];
+            [exportString appendString:currentContainer.strName];
+            [exportString appendString:@"|"];
+            [exportString appendString:@"Container description: "];
+            [exportString appendString:currentContainer.strDescription];
+            [exportString appendString:@"|"];
+            [exportString appendString:@"Container contents: "];
+            [exportString appendString:@"|"];
+            
+            NSSet* containerAssets = currentContainer.assets;
+            NSArray* containerAssetARray = containerAssets.allObjects;
+            
+            for (int j = 0; j < containerAssetARray.count; ++j)
+            {
+                Asset* innerAsset = ((Asset*)[containerAssetARray objectAtIndex:j]);
+                
+                if ([innerAsset isKindOfClass:[Item class]])
+                {
+                    Item* innerItem = ((Item*)currentAsset);
+                    [exportString appendString:@"Item name: "];
+                    [exportString appendString:innerItem.strName];
+                    [exportString appendString:@"|"];
+                    [exportString appendString:@"Item description: "];
+                    [exportString appendString:innerItem.strDescription];
+                    [exportString appendString:@"|"];
+                    //[exportString appendString:@"Item quantity: "];
+                    //[exportString appendString:innerItem.quantity.stringValue];
+                    //[exportString appendString:@"|"];
+                    //[exportString appendString:@"Unit of Issue: "];
+                    //[exportString appendString:innerItem.unitOfIssue.stringValue];
+                    //[exportString appendString:@"|"];
+                    //[exportString appendString:@"Authorized issue: "];
+                    //[exportString appendString:innerItem.authorizedIssue.stringValue];
+                    //[exportString appendString:@"|"];
+                    //[exportString appendString:@"NSN: "];
+                    //[exportString appendString:innerItem.nsn];
+                    //[exportString appendString:@"|"];
+                }
+            }
+        }
     }
     
     
