@@ -129,14 +129,20 @@
 
 - (IBAction)onDoneButton:(id)sender {
     
+    BOOL isNewAsset = YES;
     //If is container
     if (m_containerSwitch.isOn)
     {
         
-        if (self.createdAsset != nil)
+        if (self.createdAsset == nil)
         {
             self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
         }
+        else
+        {
+            isNewAsset = NO;
+        }
+        
         if ([self.createdAsset isKindOfClass:[Container class]])
         {
             ((Container *) self.createdAsset).assets = [[NSSet alloc] init];
@@ -145,9 +151,15 @@
     }
     else
     {
-        if (self.createdAsset != nil)
+
+        if (self.createdAsset == nil)
         {
+
             self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
+        }
+        else
+        {
+            isNewAsset = NO;
         }
         
         if ([self.createdAsset isKindOfClass:[Item class]])
@@ -166,25 +178,31 @@
     //Check to see who pushed to us; we want to return to them
     if ([m_parentAsset isKindOfClass:[Container class]])
     {
-        Container *container = (Container*) m_parentAsset;
-        [container addAssetsObject:self.createdAsset];
+        if(isNewAsset == YES)
+        {
+            Container *container = (Container*) m_parentAsset;
+            [container addAssetsObject:self.createdAsset];
+        }
         
         NSError *error;
         if (![[self managedObjectContext] save:&error])
         {
-            NSLog(@"Could not save: %@", error.description);
+            NSLog(@"Could not save: %@", error.debugDescription);
         }
         //[self performSegueWithIdentifier:@"SegueAssetCreateToContainerDetail" sender:self];
     }
     else
     {
-        Inventory *inventory = (Inventory*) m_parentAsset;
-        [inventory addAssetsObject:self.createdAsset];
+        if(isNewAsset == YES)
+        {
+            Inventory *inventory = (Inventory*) m_parentAsset;
+            [inventory addAssetsObject:self.createdAsset];
+        }
         
         NSError *error;
         if (![[self managedObjectContext] save:&error])
         {
-            NSLog(@"Could not save: %@", error.description);
+            NSLog(@"Could not save: %@", error.debugDescription);
         }
         
         //[self performSegueWithIdentifier:@"SegueAssetCreateToInventoryDetail" sender:self];

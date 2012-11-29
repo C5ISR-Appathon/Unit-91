@@ -10,7 +10,7 @@
 #import "AssetCreateViewController.h"
 
 @interface ItemDetailViewController ()
-
+-(void) configureView;
 @end
 
 @implementation ItemDetailViewController
@@ -24,18 +24,34 @@
     return self;
 }
 
+- (void)configureView
+{
+    // Update the user interface for the detail item.
+    
+    if (self.detailItem)
+    {
+        [_strNameLabel setText:self.detailItem.strName];
+        [_quantityLabel setText:self.detailItem.quantity.stringValue];
+        [_descriptionLabel setText:self.detailItem.strDescription];
+        [_authorizedIssueLabel setText:self.detailItem.authorizedIssue.stringValue];
+        [_NSNLabel setText:self.detailItem.nsn];
+        [_unitOfIssueLabel setText:self.detailItem.unitOfIssue.stringValue];
+        [_imageView setImage:[UIImage imageWithContentsOfFile:self.detailItem.strImagePath]];
+
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self configureView];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [_strNameLabel setText:self.detailItem.strName];
-    [_quantityLabel setText:self.detailItem.quantity.stringValue];
-    [_descriptionLabel setText:self.detailItem.strDescription];
-    [_authorizedIssueLabel setText:self.detailItem.authorizedIssue.stringValue];
-    [_NSNLabel setText:self.detailItem.nsn];
-    [_unitOfIssueLabel setText:self.detailItem.unitOfIssue.stringValue];
-    [_imageView setImage:[UIImage imageWithContentsOfFile:self.detailItem.strImagePath]];
-
+    [self configureView];
+    
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditButton:)];
     self.navigationItem.rightBarButtonItem = editButton;
 }
