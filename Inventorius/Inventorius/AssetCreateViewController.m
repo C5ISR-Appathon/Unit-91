@@ -11,7 +11,8 @@
 #import "AssetCreateViewController.h"
 #import "Inventory.h"
 #import "ImagePicker.h"
-
+#import "InventoryDetailViewController.h"
+#import "ContainerDetailViewController.h"
 
 @interface AssetCreateViewController ()
 
@@ -58,7 +59,7 @@
     m_descriptionTextField.delegate = self;
     m_authorizedIssueNumberTextField.delegate = self;
     m_nsnTextField.delegate = self;
-    m_unitOfIssueTextField.delegate = self;
+    m_unitOfIssueTextField.delegate = self;    
     
     if (_createdAsset != nil)
     {
@@ -114,11 +115,12 @@
 {
     if ([[segue identifier] isEqualToString:@"SegueAssetCreateToInventoryDetail"])
     {
-        ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        //((InventoryDetailViewController*)segue.destinationViewController).navItemToRemove = self;
+        ((InventoryDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
     else if ([[segue identifier] isEqualToString:@"SegueAssetCreateToContainerDetail"])
     {
-        ((AssetCreateViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
+        ((ContainerDetailViewController*)segue.destinationViewController).managedObjectContext = self.managedObjectContext;
     }
     
     
@@ -172,7 +174,7 @@
         {
             NSLog(@"Could not save: %@", error.description);
         }
-        [self performSegueWithIdentifier:@"SegueAssetCreateToContainerDetail" sender:self];
+        //[self performSegueWithIdentifier:@"SegueAssetCreateToContainerDetail" sender:self];
     }
     else
     {
@@ -184,8 +186,11 @@
         {
             NSLog(@"Could not save: %@", error.description);
         }
-        [self performSegueWithIdentifier:@"SegueAssetCreateToInventoryDetail" sender:self];
+        
+        //[self performSegueWithIdentifier:@"SegueAssetCreateToInventoryDetail" sender:self];
     }
+
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)onSwitch:(id)sender {

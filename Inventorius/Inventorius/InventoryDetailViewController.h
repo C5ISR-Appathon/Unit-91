@@ -11,6 +11,7 @@
 #import "Inventory.h"
 #import "Container.h"
 #import "Item.h"
+#import "AssetCreateViewController.h"
 
 @interface InventoryDetailViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
 
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) Inventory *detailItem;
+@property AssetCreateViewController* navItemToRemove;
 
 @property Container *selectedContainer;
 @property Item *selectedItem;
