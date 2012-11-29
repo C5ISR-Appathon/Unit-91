@@ -67,6 +67,7 @@
     if ([[segue identifier] isEqualToString:@"SegueItemDetailToAssetCreate"])
     {
         AssetCreateViewController* controller = ((AssetCreateViewController*)segue.destinationViewController);
+        controller.managedObjectContext = self.managedObjectContext;
         controller.createdAsset = self.detailItem;
     }
 
