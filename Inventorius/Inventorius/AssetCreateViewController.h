@@ -23,6 +23,7 @@
 @property (strong, nonatomic) UIImagePickerController *picker;
 @property (nonatomic, retain) UIImageView* selectedImage;
 @property (strong, nonatomic) NSString* m_assetPath;
+@property (strong, nonatomic) NSString* m_thumbPath;
 @property (strong, nonatomic) Asset *createdAsset;
 @property (strong, nonatomic) Asset* m_parentAsset;
 
