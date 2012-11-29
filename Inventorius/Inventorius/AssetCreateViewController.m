@@ -60,6 +60,30 @@
     m_nsnTextField.delegate = self;
     m_unitOfIssueTextField.delegate = self;    
     
+    if (_createdAsset != nil)
+    {
+        //If is container
+        if (([self.createdAsset isKindOfClass:[Container class]]))
+        {
+            
+        }
+        else if ([self.createdAsset isKindOfClass:[Item class]])
+        {
+            
+            m_nsnTextField.text = ((Item *) self.createdAsset).nsn;
+            
+            m_unitOfIssueTextField.text = ((Item *) self.createdAsset).unitOfIssue.stringValue;
+            m_quantityTextField.text = ((Item *) self.createdAsset).quantity.stringValue;
+            m_authorizedIssueNumberTextField.text = ((Item *) self.createdAsset).authorizedIssue.stringValue;
+            
+        }
+        
+        m_descriptionTextField.text = self.createdAsset.strDescription;
+        m_assetPath = self.createdAsset.strImagePath;
+        m_nameTextField.text = self.createdAsset.strName;
+        [m_cameraButton setBackgroundImage:[UIImage imageWithContentsOfFile:m_assetPath] forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,8 +129,12 @@
     
     //If is container
     if (m_containerSwitch.isOn)
-    {        
-        self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
+    {
+        
+        if (self.createdAsset != nil)
+        {
+            self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Container" inManagedObjectContext:self.managedObjectContext];
+        }
         if ([self.createdAsset isKindOfClass:[Container class]])
         {
             ((Container *) self.createdAsset).assets = [[NSSet alloc] init];
@@ -115,14 +143,17 @@
     }
     else
     {
-        self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
+        if (self.createdAsset != nil)
+        {
+            self.createdAsset = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
+        }
+        
         if ([self.createdAsset isKindOfClass:[Item class]])
         {
-            Item *item = (Item*)self.createdAsset;
-            item.nsn = m_nsnTextField.text;
-            item.authorizedIssue = [NSDecimalNumber decimalNumberWithString:m_authorizedIssueNumberTextField.text];
-            item.quantity = [NSDecimalNumber decimalNumberWithString:m_quantityTextField.text];
-            item.unitOfIssue = [NSDecimalNumber decimalNumberWithString:m_unitOfIssueTextField.text];
+            ((Item *) self.createdAsset).nsn = m_nsnTextField.text;
+            ((Item *) self.createdAsset).authorizedIssue = [NSDecimalNumber decimalNumberWithString:m_authorizedIssueNumberTextField.text];
+            ((Item *) self.createdAsset).quantity = [NSDecimalNumber decimalNumberWithString:m_quantityTextField.text];
+            ((Item *) self.createdAsset).unitOfIssue = [NSDecimalNumber decimalNumberWithString:m_unitOfIssueTextField.text];
         }
     }
     self.createdAsset.strDescription = m_descriptionTextField.text;
