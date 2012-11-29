@@ -175,13 +175,13 @@
     NSMutableString* exportString = [[NSMutableString alloc] init];
     [exportString appendString:@"Inventory Name: "];
     [exportString appendString:_detailItem.strName];
-    [exportString appendString:@"|"];
+    [exportString appendString:@"\r\n"];
     [exportString appendString:@"Owner: "];
     [exportString appendString:_detailItem.owner];
-    [exportString appendString:@"|"];
+    [exportString appendString:@"\r\n"];
     [exportString appendString:@"Description: "];
     [exportString appendString:_detailItem.strDescription];
-    [exportString appendString:@"|"];
+    [exportString appendString:@"\r\n"];
     
     NSSet* assets = _detailItem.assets;
     NSArray* allAssets = assets.allObjects;
@@ -195,34 +195,34 @@
             Item* currentItem = ((Item*)currentAsset);
             [exportString appendString:@"Item name: "];
             [exportString appendString:currentItem.strName];
-            [exportString appendString:@"|"];
+            [exportString appendString:@"\r\n"];
             [exportString appendString:@"Item description: "];
             [exportString appendString:currentItem.strDescription];
-            [exportString appendString:@"|"];
+            [exportString appendString:@"\r\n"];
             [exportString appendString:@"Item quantity: "];
             [exportString appendString:currentItem.quantity.stringValue];
-            [exportString appendString:@"|"];
+            [exportString appendString:@"\r"];
             [exportString appendString:@"Unit of Issue: "];
             [exportString appendString:currentItem.unitOfIssue.stringValue];
-            [exportString appendString:@"|"];
+            [exportString appendString:@"\r\n"];
             [exportString appendString:@"Authorized issue: "];
             [exportString appendString:currentItem.authorizedIssue.stringValue];
-            [exportString appendString:@"|"];
+            [exportString appendString:@"\r\n"];
             [exportString appendString:@"NSN: "];
             [exportString appendString:currentItem.nsn];
-            [exportString appendString:@"|"];
+            [exportString appendString:@"\r\n"];
         }
         else if ([currentAsset isKindOfClass:[Container class]])
         {
             Container* currentContainer = ((Container*) currentAsset);
             [exportString appendString:@"Container name: "];
             [exportString appendString:currentContainer.strName];
-            [exportString appendString:@"|"];
+            [exportString appendString:@"\r\n"];
             [exportString appendString:@"Container description: "];
             [exportString appendString:currentContainer.strDescription];
-            [exportString appendString:@"|"];
+            [exportString appendString:@"\r\n"];
             [exportString appendString:@"Container contents: "];
-            [exportString appendString:@"|"];
+            [exportString appendString:@"\r\n"];
             
             NSSet* containerAssets = currentContainer.assets;
             NSArray* containerAssetARray = containerAssets.allObjects;
@@ -233,25 +233,25 @@
                 
                 if ([innerAsset isKindOfClass:[Item class]])
                 {
-                    Item* innerItem = ((Item*)currentAsset);
+                    Item* innerItem = ((Item*)innerAsset);
                     [exportString appendString:@"Item name: "];
                     [exportString appendString:innerItem.strName];
-                    [exportString appendString:@"|"];
+                    [exportString appendString:@"\r\n"];
                     [exportString appendString:@"Item description: "];
                     [exportString appendString:innerItem.strDescription];
-                    [exportString appendString:@"|"];
-                    //[exportString appendString:@"Item quantity: "];
-                    //[exportString appendString:innerItem.quantity.stringValue];
-                    //[exportString appendString:@"|"];
-                    //[exportString appendString:@"Unit of Issue: "];
-                    //[exportString appendString:innerItem.unitOfIssue.stringValue];
-                    //[exportString appendString:@"|"];
-                    //[exportString appendString:@"Authorized issue: "];
-                    //[exportString appendString:innerItem.authorizedIssue.stringValue];
-                    //[exportString appendString:@"|"];
-                    //[exportString appendString:@"NSN: "];
-                    //[exportString appendString:innerItem.nsn];
-                    //[exportString appendString:@"|"];
+                    [exportString appendString:@"\r\n"];
+                    [exportString appendString:@"Item quantity: "];
+                    [exportString appendString:innerItem.quantity.stringValue];
+                    [exportString appendString:@"\r\n"];
+                    [exportString appendString:@"Unit of Issue: "];
+                    [exportString appendString:innerItem.unitOfIssue.stringValue];
+                    [exportString appendString:@"\r\n"];
+                    [exportString appendString:@"Authorized issue: "];
+                    [exportString appendString:innerItem.authorizedIssue.stringValue];
+                    [exportString appendString:@"\r\n"];
+                    [exportString appendString:@"NSN: "];
+                    [exportString appendString:innerItem.nsn];
+                    [exportString appendString:@"\r\n"];
                 }
             }
         }
