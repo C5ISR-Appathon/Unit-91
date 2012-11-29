@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		079135021666E8F400B247A0 /* pinstripe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 079135011666E8F400B247A0 /* pinstripe.jpg */; };
+		079135051666EA0300B247A0 /* linen.png in Resources */ = {isa = PBXBuildFile; fileRef = 079135041666EA0300B247A0 /* linen.png */; };
+		079135071666EC9B00B247A0 /* inventory_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 079135061666EC9B00B247A0 /* inventory_icon.png */; };
+		079135091666ECA300B247A0 /* inventory_icon_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 079135081666ECA300B247A0 /* inventory_icon_retina.png */; };
 		524D53CF1666518300556439 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53CE1666518300556439 /* UIKit.framework */; };
 		524D53D11666518300556439 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53D01666518300556439 /* Foundation.framework */; };
 		524D53D31666518300556439 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D53D21666518300556439 /* CoreGraphics.framework */; };
@@ -44,6 +48,10 @@
 		07628369166653C300FAFB16 /* Container.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Container.m; sourceTree = "<group>"; };
 		0762836F1666555B00FAFB16 /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
 		076283701666555C00FAFB16 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
+		079135011666E8F400B247A0 /* pinstripe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pinstripe.jpg; sourceTree = "<group>"; };
+		079135041666EA0300B247A0 /* linen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linen.png; sourceTree = "<group>"; };
+		079135061666EC9B00B247A0 /* inventory_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventory_icon.png; sourceTree = "<group>"; };
+		079135081666ECA300B247A0 /* inventory_icon_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventory_icon_retina.png; sourceTree = "<group>"; };
 		524D53CA1666518300556439 /* Inventorius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inventorius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524D53CE1666518300556439 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		524D53D01666518300556439 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -134,6 +142,8 @@
 		524D53BF1666518300556439 = {
 			isa = PBXGroup;
 			children = (
+				079135081666ECA300B247A0 /* inventory_icon_retina.png */,
+				079135061666EC9B00B247A0 /* inventory_icon.png */,
 				AF3087931666E40000C826D0 /* MessageUI.framework */,
 				AF3087901666E3B900C826D0 /* QuartzCore.framework */,
 				524D53CD1666518300556439 /* Frameworks */,
@@ -164,6 +174,8 @@
 		524D53D61666518300556439 /* Inventorius */ = {
 			isa = PBXGroup;
 			children = (
+				079135041666EA0300B247A0 /* linen.png */,
+				079135011666E8F400B247A0 /* pinstripe.jpg */,
 				524D53DF1666518300556439 /* AppDelegate.h */,
 				524D53E01666518300556439 /* AppDelegate.m */,
 				52E1DEDF1666734800373F32 /* DefaultContainerImage.png */,
@@ -259,6 +271,10 @@
 				524D53E71666518300556439 /* Default-568h@2x.png in Resources */,
 				524D53EA1666518300556439 /* MainStoryboard.storyboard in Resources */,
 				52E1DEE01666734800373F32 /* DefaultContainerImage.png in Resources */,
+				079135021666E8F400B247A0 /* pinstripe.jpg in Resources */,
+				079135051666EA0300B247A0 /* linen.png in Resources */,
+				079135071666EC9B00B247A0 /* inventory_icon.png in Resources */,
+				079135091666ECA300B247A0 /* inventory_icon_retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
