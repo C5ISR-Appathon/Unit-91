@@ -201,13 +201,24 @@
             [exportString appendString:currentItem.strDescription];
             [exportString appendString:@"\r\n"];
             [exportString appendString:@"Item quantity: "];
-            [exportString appendString:currentItem.quantity.stringValue];
-            [exportString appendString:@"\r"];
+            if (currentItem.quantity != nil)
+            {
+                [exportString appendString:currentItem.quantity.stringValue];
+            }
+            [exportString appendString:@"\r\n"];
             [exportString appendString:@"Unit of Issue: "];
-            [exportString appendString:currentItem.unitOfIssue.stringValue];
+            if (currentItem.unitOfIssue != nil)
+            {
+                [exportString appendString:currentItem.unitOfIssue.stringValue];
+                
+            }
             [exportString appendString:@"\r\n"];
             [exportString appendString:@"Authorized issue: "];
-            [exportString appendString:currentItem.authorizedIssue.stringValue];
+            if (currentItem.authorizedIssue != nil)
+            {
+                
+                [exportString appendString:currentItem.authorizedIssue.stringValue];
+            }
             [exportString appendString:@"\r\n"];
             [exportString appendString:@"NSN: "];
             [exportString appendString:currentItem.nsn];
@@ -242,13 +253,25 @@
                     [exportString appendString:innerItem.strDescription];
                     [exportString appendString:@"\r\n"];
                     [exportString appendString:@"Item quantity: "];
-                    [exportString appendString:innerItem.quantity.stringValue];
+                    if (innerItem.quantity != nil)
+                    {
+                        [exportString appendString:innerItem.quantity.stringValue];
+                        
+                    }
                     [exportString appendString:@"\r\n"];
                     [exportString appendString:@"Unit of Issue: "];
-                    [exportString appendString:innerItem.unitOfIssue.stringValue];
+                    if (innerItem.unitOfIssue != nil)
+                    {
+                        [exportString appendString:innerItem.unitOfIssue.stringValue];
+                        
+                    }
                     [exportString appendString:@"\r\n"];
                     [exportString appendString:@"Authorized issue: "];
-                    [exportString appendString:innerItem.authorizedIssue.stringValue];
+                    if (innerItem.authorizedIssue != nil)
+                    {
+                        [exportString appendString:innerItem.authorizedIssue.stringValue];
+                        
+                    }
                     [exportString appendString:@"\r\n"];
                     [exportString appendString:@"NSN: "];
                     [exportString appendString:innerItem.nsn];
