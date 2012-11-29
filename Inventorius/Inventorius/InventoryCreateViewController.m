@@ -53,10 +53,21 @@
     
 }
 
+- (void)dismissKeyboard
+{
+    [m_nameTextField resignFirstResponder];
+    [m_descriptionTextField resignFirstResponder];
+    [m_ownerTextField resignFirstResponder];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
     
     //self.createdInventory.strName = @"New Inventory";
     //self.createdInventory.owner = @"The Owner";

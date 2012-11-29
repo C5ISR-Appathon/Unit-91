@@ -25,6 +25,8 @@
 @property (strong, nonatomic) UIImagePickerController *picker;
 //@property (nonatomic, retain) UIImageView* selectedImage;
 @property (strong, nonatomic) NSString* m_imagePath;
+
+-(void)dismissKeyboard;
 - (IBAction)cameraButtonPressed:(id)sender;
 
 @end
